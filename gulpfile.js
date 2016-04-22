@@ -52,7 +52,6 @@ if (gutil.env.dev === true) {
   sourceMap = true;
   isProduction = false;
 }
-console.log(gutil.env);
 
 var changeEvent = function (evt) {
   gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePaths.src + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
@@ -60,7 +59,7 @@ var changeEvent = function (evt) {
 
 gulp.task('clean', function () {
   return gulp.src(basePaths.dest, {read: false})
-    .pipe(plugins.clean());
+    .pipe(plugins.clean({force:true}));
 });
 gulp.task('css', function () {
   // app css
