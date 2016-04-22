@@ -60,6 +60,15 @@
 
     <!-- Favicon Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <!-- 3rd party css -->
+
+
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/Trip.js/dist/trip.min.css">
+    <link rel="stylesheet" href="/bower_components/flag-icon-css/css/flag-icon.css" >
+    <link rel="stylesheet" href="/bower_components/share.js/dist/css/share.min.css">
+    <link rel="stylesheet" href="/bower_components/primer-css/css/primer.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
 
     <!-- custom css-->
     <link rel="stylesheet" href="/assets/css/components/collection.css">
@@ -68,19 +77,12 @@
     <link rel="stylesheet" href="/assets/css/sections/mini-repo-list.css">
     <link rel="stylesheet" href="/assets/css/components/boxed-group.css">
     <link rel="stylesheet" href="/assets/css/globals/common.css">
-    <link rel="stylesheet" href="/assets/css/globals/responsive.css">
     <link rel="stylesheet" href="/assets/css/posts/index.css">
     <link rel="stylesheet" href="/assets/css/pages/index.css">
     <link rel="stylesheet" href="/assets/css/pages/hover-min.css">
     <link rel="stylesheet" href="/assets/css/globals/prism.css">
+    <link rel="stylesheet" href="/assets/css/globals/responsive.css">
 
-    <!-- 3rd party css -->
-    <link rel="stylesheet" href="/bower_components/primer-css/css/primer.css">
-    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
-    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
-    <link rel="stylesheet" href="/bower_components/Trip.js/dist/trip.min.css">
-    <link rel="stylesheet" href="/bower_components/flag-icon-css/css/flag-icon.css" >
-    <link rel="stylesheet" href="/bower_components/share.js/dist/css/share.min.css">
 
     <!-- 3rd party scripts -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -100,7 +102,7 @@
     {% endfor %}
 
 </head>
-<body class="{{ page.class }}" ng-app="app">
+<body class="{{ page.class }}">
     <header class="site-header" id="site-header-id">
         <div class="container">
             <h1><a href="/" title="{{ site.name }}"><span class="octicon octicon-mark-github"></span> {{ site.name }}</a></h1>
