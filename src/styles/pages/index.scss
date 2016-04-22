@@ -1,32 +1,103 @@
 .home {
-    .site-header, .banner {
-        background: #4183c4;
+  .site-header, .banner {
+    background: #4183c4;
+    color: #fff;
+    float: left;
+  }
+
+  .banner {
+    width: 100%;
+    top: 0px;
+    margin-top: 0px;
+    padding-top: 100px;
+    height: 350px;
+    position: fixed;
+    z-index: -1 !important;
+
+    .collection-head {
+      padding: 4rem 0;
+      color: #fff;
+      background: transparent;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+  }
+
+  .site-header {
+    border-bottom: none;
+
+    h1 a {
+      color: #fff;
+    }
+
+    .site-header-nav-item {
+      color: rgba(255, 255, 255, 0.5);
+
+      &:hover {
         color: #fff;
+      }
     }
+  }
+}
 
-    .banner {
-        .collection-head {
-            padding:4rem 0;
-            color: #fff;
-            background: transparent;
-            box-shadow:none;
-            -webkit-box-shadow:none;
-        }
+.content {
+  margin-top: 350px;
+  z-index: 102;
+  background-color: white;
+}
+
+#site-header-id {
+  width: 100%;
+  position: fixed;
+  margin: 40px 0 30px 0;
+  float: left;
+  top: 0;
+  left: 0 !important;
+  right: 0;
+  z-index: 103;
+  transition: all 0.5s ease;
+
+  &.site-header-nav-scrolled {
+    margin: 0px 0;
+    background-color: white;
+
+    box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
+    a {
+      color: #2e2e2e;
+      &:hover {
+        color: #4183c4;
+      }
     }
+  }
+}
 
-    .site-header {
-        border-bottom:none;
+.site-header {
+  background-color: white;
+}
 
-        h1 a {
-            color: #fff;
-        }
+.btn-info {
+  width: 110px;
+  color: #fff;
+  background-color: #f0ad4e;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  border: 1px solid #eea236;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
 
-        .site-header-nav-item {
-            color: rgba(255,255,255,0.5);
+.collection-head-scrolled {
+  width: 100%;
+  height: 350px;
+  top: 0px;
+  padding-top: 130px;
+  z-index: -1;
+  position: fixed;
+}
 
-            &:hover {
-                color: #fff;
-            }
-        }
-    }
+#container-open-source {
+  margin-top: 150px;
 }
