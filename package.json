@@ -15,9 +15,7 @@
     "gulp-sass": "^2.3.1",
     "gulp-size": "^0.3.1",
     "gulp-uglify": "^0.2.1",
-    "gulp-util": "^2.2.14"
-  },
-  "dependencies": {
+    "gulp-util": "^2.2.14",
     "gulp-clean": "^0.3.2"
   }
 }
