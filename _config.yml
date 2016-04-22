@@ -1,8 +1,8 @@
-title: DONGChuan - Chuan's Website
-name: DONGChuan
-email: dongchuan55@gmail.com
-description: Chuan's Website
-keywords: 董川
+title: zale - ZhangLe's Website
+name: zale
+email: 810881283@qq.com
+description: zale's Website
+keywords: zale 张乐
 skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
 skill_j2ee_keywords: [Spring, Struct, Hibernet, JSP]
 skill_web_keywords: [HTML, CSS, Javascript, Jquery, ajax, Angularjs, Nodejs, Expressjs, MongoDB, Redis, PHP, Symfony, Boostrap]
@@ -11,13 +11,13 @@ skill_mobile_app_keywords: [Android, Sketch UI Desgin]
 timezone: PRC
 encoding: "utf-8"
 
-url: http://dongchuan.github.io
+url: http://zale.site
 baseurl:  "/"
 domain:
 permalink:     /articles/:year/:month/:title.html
 paginate_path: 'page:num'
 paginate:   10
-source_code: https://github.com/DONGChuan/DONGChuan.github.io
+source_code: https://github.com/zl810881283/zl810881283.github.io
 
 # Build settings
 markdown:    kramdown
