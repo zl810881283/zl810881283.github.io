@@ -12,9 +12,9 @@ skill_mobile_app_keywords: [Android, Inoic, Cordova]
 timezone: PRC
 encoding: "utf-8"
 
-url: http://zl810881283.github.io
+url:
 baseurl:  "/"
-domain: zale.site
+domain:
 permalink:     /articles/:year/:month/:title.html
 paginate_path: 'page:num'
 paginate:   10
@@ -76,5 +76,5 @@ navs:
     href: /about
     label: About
 
-popular_repos: ['GradleUserGuide','YummyWakeUp', 'Java-BackGammon', 'Java-Interview-Question', 'PoetrySearch']
-contribute_repos: ['UFreedom/YummyTime', 'UFreedom/CountDownTextView']
+popular_repos: ['ppt','RandomName', 'Java-BackGammon', 'zl810881283.github.io', 'project_template']
+contribute_repos: ['academic-zl/SEMAGE', 'outsourcingproject/auction', 'outsourcingproject/zhazha.com', 'outsourcingproject/wechart_shop']

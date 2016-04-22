@@ -1,17 +1,16 @@
-
 <h3>Post Directory</h3>
 <div id="post-directory-module">
-<section class="post-directory">
-    <!-- Links that trigger the jumping -->
-    <!-- Added by javascript below -->
-    <dl></dl>
-</section>
+    <section class="post-directory">
+        <!-- Links that trigger the jumping -->
+        <!-- Added by javascript below -->
+        <dl></dl>
+    </section>
 </div>
 
 <script type="text/javascript">
 
-    $(document).ready(function(){
-        $( "article h2" ).each(function( index ) {
+    $(document).ready(function () {
+        $("article h2").each(function (index) {
             $(".post-directory dl").append("<dt><a class=\"jumper\" href=#" +
                     $(this).attr("id")
                     + ">"
@@ -20,7 +19,7 @@
 
             var children = $(this).nextUntil("h2", "h3")
 
-            children.each(function( index) {
+            children.each(function (index) {
                 $(".post-directory dl").append("<dd><a class=\"jumper\" href=#" +
                         $(this).attr("id")
                         + ">"
@@ -31,7 +30,7 @@
 
         var fixmeTop = $('#post-directory-module').offset().top - 80;       // get initial position of the element
 
-        $(window).scroll(function() {                  // assign scroll event listener
+        $(window).scroll(function () {                  // assign scroll event listener
 
             var currentScroll = $(window).scrollTop(); // get current position
 
@@ -47,17 +46,16 @@
                     width: 'inherit'
                 });
             }
+        });
+        $(".jumper").parent().on("click", function (e) {
 
+            e.preventDefault();
+
+            $("body, html").animate({
+                scrollTop: $($(this).children('a').attr('href')).offset().top - 80
+            }, 600);
         });
     });
 
-    $(".jumper").on("click", function( e ) {
 
-        e.preventDefault();
-
-        $("body, html").animate({
-            scrollTop: $( $(this).attr('href') ).offset().top
-        }, 600);
-
-    });
 </script>
