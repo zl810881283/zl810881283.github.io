@@ -13,17 +13,18 @@ $(function () {
     }
   });
 
-  var titles = [
-    'Za is so cool, right?',
-    'Chuan plans to be a Full Stack developer',
-    'Chuan dreams to be a CTO',
-    'Chuan is now fighting with AngularJS',
-    'Chuan loves animals and traveling',
-    'Chuan has girlfriend now, so not available :D',
-    'Cool Boy',
-  ];
+
   var counter = 0;
-  var $title = $("#persol-title");
+  var $title = $("#person-title");
+  
+  var titles=[], temp= $title.data('person-titles').split('|');
+
+  for(var i in temp){
+    if(temp[i]){
+      titles.push(temp[i])
+    }
+  }
+  
   if ($title.length > 0 && titles.length > 0) {
     $title.html(titles[counter]);
     setInterval(function () {
