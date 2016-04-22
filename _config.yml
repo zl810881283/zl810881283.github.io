@@ -20,6 +20,9 @@ paginate:   10
 source_code: https://github.com/zl810881283/zl810881283.github.io
 
 # Build settings
+
+exclude:
+  - node_modules
 markdown:    kramdown
 highlighter: rouge
 lsi:         false
