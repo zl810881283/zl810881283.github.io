@@ -81,8 +81,8 @@ navs:
     label: Blog
 
   -
-    href: /footprint
-    label: Footprint
+    href: /categories
+    label: Categories
 
   -
     href: /bookmark
@@ -127,7 +127,8 @@ comments:
   duoshuo:
     username:
   changyan:
-    username:
+    appid:
+    conf:
 
 # ---------------- #
 #      Data        #

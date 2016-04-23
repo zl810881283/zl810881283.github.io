@@ -1,6 +1,5 @@
 ---
 layout: default
-comments: true
 ---
 <section class="collection-head collection-head-scrolled geopattern" data-pattern-id="{{ page.title | truncate: 15, ''}}">
     <div class="container">
@@ -31,19 +30,19 @@ comments: true
                 {{ content }}
             </article>
             {% if page.share != false %}
-            <div class="share">
-                {% include sns-share.html %}
-            </div>
+                <div class="share">
+                    {% include sns-share.html %}
+                </div>
             {% endif %}
             {% if page.comments != false %}
-            <div class="comment">
-                {% include comments.html %}
-            </div>
+                <div class="comment">
+                    {% include comments.html %}
+                </div>
             {% endif %}
         </div>
         <div class="column one-fourth">
             {% include sidebar-search.html %}
-            {% include sidebar-post-nav.html %}
+            {% include sidebar-categories-nav.html %}
         </div>
     </div>
 </section>
