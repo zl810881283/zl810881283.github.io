@@ -24,6 +24,7 @@ organization: Chongqing University
 organization_url: https://www.cqu.edu.cn
 location: Chongqing, China
 email: 810881283@qq.com
+github_account: zl810881283
 resumes:
   -
     lang: 中文简历
@@ -101,10 +102,6 @@ subscribe_rss: /feed.xml
 # ---------------- #
 socials:
   -
-    type: github
-    account: zl810881283
-    page: https://github.com/zl810881283
-  -
     type: facebook
     account:
   -
@@ -121,11 +118,16 @@ socials:
 #      Comments    #
 # ---------------- #
 # support provider: disqus, duoshuo, changyan
-comments_provider: disqus
-# !!!重要!!! 请修改下面两个用户名为你自己申请的
 # !!!Important!!! Please modify usernames below to yours
-duoshuo_username: mazhuang
-disqus_username: mzlogin
+comments:
+  provider: disqus
+  disqus:
+    username: zl810881283
+    sitename: zale
+  duoshuo:
+    username:
+  changyan:
+    username:
 
 # ---------------- #
 #      Data        #

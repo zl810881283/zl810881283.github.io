@@ -3,6 +3,7 @@ layout: page
 title: About Me
 cv: enable
 menu: About
+permalink: /about
 ---
 {% assign current_year = site.time | date: '%Y' %}
 
@@ -11,11 +12,15 @@ menu: About
 
 ## Contact
 
-- Email： [{{site.email}}](mailto://{{site.email}})
-- Website：[http://zale.site](http://zale.site)
+- Email: [{{site.email}}](mailto://{{site.email}})
+
+- Website: [http://zale.site](http://zale.site)
+
+- GitHub: [@{{site.github_account}}](https://github.com/{{site.github_account}})
 {% for social in site.socials %}
 - {{social.type}}: [@{{social.account}}]({{social.page}})
 {% endfor %}
+
 ## Skill Keywords
 
 #### Software Engineer Keywords

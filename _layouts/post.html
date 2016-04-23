@@ -30,10 +30,16 @@ comments: true
             <article class="article-content markdown-body">
                 {{ content }}
             </article>
+            {% if page.share != false %}
             <div class="share">
                 {% include sns-share.html %}
             </div>
-            {% include disqus-comments.html %}
+            {% endif %}
+            {% if page.comments != false %}
+            <div class="comment">
+                {% include comments.html %}
+            </div>
+            {% endif %}
         </div>
         <div class="column one-fourth">
             {% include sidebar-search.html %}

@@ -29,12 +29,16 @@ layout: default
             <article class="article-content markdown-body">
                 {{ content }}
             </article>
-            <div class="share">
-                {% include sns-share.html %}
-            </div>
-            <div class="comment">
-                {% include disqus-comments.html %}
-            </div>
+            {% if page.share != false %}
+                <div class="share">
+                    {% include sns-share.html %}
+                </div>
+            {% endif %}
+            {% if page.comments != false %}
+                <div class="comment">
+                    {% include comments.html %}
+                </div>
+            {% endif %}
         </div>
         <div class="column one-fourth">
             {% include sidebar-search.html %}
