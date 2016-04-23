@@ -47,14 +47,7 @@
                 });
             }
         });
-        $(".jumper").parent().on("click", function (e) {
 
-            e.preventDefault();
-
-            $("body, html").animate({
-                scrollTop: $($(this).children('a').attr('href')).offset().top - 80
-            }, 600);
-        });
     });
 
 

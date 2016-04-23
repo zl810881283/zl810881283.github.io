@@ -1,8 +1,5 @@
-/**
- * Created by chuandong on 15/12/17.
- */
 
-$(function () {
+jQuery(function ($) {
   $(window).scroll(function () {
     var scrollPos = $(this).scrollTop();
 
