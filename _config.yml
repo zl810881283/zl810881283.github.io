@@ -72,25 +72,37 @@ navs:
     href: /
     label: Home
 
-  -
-    href: /open-source
-    label: Open-Source
-
-  -
-    href: /blog
-    label: Blog
+#  -
+#    href: /blog
+#    label: Blog
 
   -
     href: /categories
     label: Categories
 
   -
+    href: /wiki
+    label: Wiki
+
+  -
     href: /bookmark
     label: Bookmark
 
   -
+    href: /open-source
+    label: Open-Source
+
+  -
     href: /about
     label: About
+
+# ---------------- #
+#       Wiki       #
+# ---------------- #
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
 
 # ---------------- #
 #       RSS        #
