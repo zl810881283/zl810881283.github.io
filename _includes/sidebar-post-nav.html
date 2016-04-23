@@ -17,7 +17,7 @@
                     + $(this).text()
                     + "</a></dt>");
 
-            var children = $(this).nextUntil("h2", "h3")
+            var children = $(this).nextUntil("h2", "h3");
 
             children.each(function (index) {
                 $(".post-directory dl").append("<dd><a class=\"jumper\" href=#" +
@@ -26,6 +26,9 @@
                         + "&nbsp;&nbsp;- " + $(this).text()
                         + "</a></dd>");
             });
+        });
+        $('.jumper').parent().click(function(){
+            $(this).children('a').click();
         });
 
         var fixmeTop = $('#post-directory-module').offset().top - 80;       // get initial position of the element

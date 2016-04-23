@@ -14,8 +14,11 @@ jQuery(function ($) {
     }, 600);
   });
   if(location.hash){
-    $("body, html").animate({
-      scrollTop: $(location.hash).offset().top - 80
-    }, 600);
+    setTimeout(function () {
+      $("body, html").animate({
+        scrollTop: $(location.hash).offset().top - 80
+      }, 600);
+    },1000);
+
   }
 });
