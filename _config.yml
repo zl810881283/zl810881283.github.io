@@ -1,16 +1,10 @@
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
 title: Zale - ZhangLe's Website
 name: Zale
-email: 810881283@qq.com
-description: Zale's Website
-keywords: [Zale, blog, ZhangLe]
-
-skill_software_keywords: [Java, C, C++, MySQL, Oracle, SQLite, Design Patterns]
-skill_j2ee_keywords: [Spring, Struct, Hibernet, JSP]
-skill_web_keywords: [HTML, CSS, Javascript, Jquery, Angular, Nodejs, Expressjs, MongoDB, Boostrap]
-skill_mobile_app_keywords: [Android, Inoic, Cordova]
-
-timezone: PRC
-encoding: "utf-8"
+description: Zale's Personal Website
+keywords: Zale, blog, ZhangLe
 
 url:
 baseurl:  "/"
@@ -20,15 +14,34 @@ paginate_path: 'page:num'
 paginate:   10
 source_code: https://github.com/zl810881283/zl810881283.github.io
 
-# Build settings
+timezone: Asia/Shanghai
+encoding: "utf-8"
 
-exclude: [node_modules]
-
+# ---------------- #
+#      Author      #
+# ---------------- #
+organization: Chongqing University
+organization_url: https://www.cqu.edu.cn
+location: Chongqing, China
+email: 810881283@qq.com
+resumes:
+  -
+    lang: 中文简历
+    link:
+    icon: cn
+  -
+    lang: English
+    link:
+    icon: gb
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
 markdown:    kramdown
 highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
+exclude: [node_modules]
 source:      .
 destination: ./_site
 
@@ -50,7 +63,9 @@ analytics :
   google :
       tracking_id : 'UA-72165600-1'
 
-# navigation
+# ---------------- #
+#    Navigation    #
+# ---------------- #
 navs:
   -
     href: /
@@ -76,6 +91,49 @@ navs:
     href: /about
     label: About
 
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Socials     #
+# ---------------- #
+socials:
+  -
+    type: github
+    account: zl810881283
+    page: https://github.com/zl810881283
+  -
+    type: facebook
+    account:
+  -
+    type: zhihu
+    account:
+  -
+    type: twitter
+    account:
+  -
+    type: weibo
+    account:
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, duoshuo, changyan
+comments_provider: disqus
+# !!!重要!!! 请修改下面两个用户名为你自己申请的
+# !!!Important!!! Please modify usernames below to yours
+duoshuo_username: mazhuang
+disqus_username: mzlogin
+
+# ---------------- #
+#      Data        #
+# ---------------- #
+skill_software_keywords: [Java, C, C++, MySQL, Oracle, SQLite, Design Patterns]
+skill_j2ee_keywords: [Spring, Struct, Hibernet, JSP]
+skill_web_keywords: [HTML, CSS, Javascript, Jquery, Angular, Nodejs, Expressjs, MongoDB, Boostrap]
+skill_mobile_app_keywords: [Android, Inoic, Cordova]
 popular_repos: ['ppt','RandomName', 'Java-BackGammon', 'zl810881283.github.io', 'project_template']
 contribute_repos: ['academic-zl/SEMAGE', 'outsourcingproject/auction', 'outsourcingproject/zhazha.com', 'outsourcingproject/wechart_shop']
 personal_titles: [ 'Zale plans to be a Full Stack developer', 'Zale dreams to be a CTO', 'Zale is now study in Chongqing university', 'Zale loves coding and innovating', 'Zale has girlfriend now, so not available :D', 'Zale is so cool, right?']

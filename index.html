@@ -12,15 +12,15 @@ css: ['pages/index.css']
                 <div class="collection-info">
                     <span class="meta-info">
                         <span class="octicon octicon-location"></span>
-                        Chongqing, China
+                        {{site.location}}
                     </span>
                     <span class="meta-info">
                         <span class="octicon octicon-organization"></span>
-                        <a href="http://www.cqu.edu.cn" target="_blank">Chongqing university</a>
+                        <a href="{{site.organization_url}}" target="_blank">{{site.organization}}</a>
                     </span>
                      <span class="meta-info last-updated">
                         <span class="octicon octicon-mark-github"></span>
-                        <a href="https://github.com/zl810881283" target="_blank">zl810881283</a>
+                        <a href="https://github.com/{{site.socials[0].account}}" target="_blank">{{site.socials[0].account}}</a>
                     </span>
                 </div>
             </div>

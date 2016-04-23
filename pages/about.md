@@ -6,14 +6,16 @@ menu: About
 ---
 {% assign current_year = site.time | date: '%Y' %}
 
-# Zale
+# {{site.name}}
 
 
 ## Contact
 
-- Email： 810881283@qq.com
+- Email： [{{site.email}}](mailto://{{site.email}})
 - Website：[http://zale.site](http://zale.site)
-
+{% for social in site.socials %}
+- {{social.type}}: [@{{social.account}}]({{social.page}})
+{% endfor %}
 ## Skill Keywords
 
 #### Software Engineer Keywords

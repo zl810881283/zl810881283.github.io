@@ -13,20 +13,16 @@ comments: true
                     </span>
             </div>
             {% endif %}
-            {% if page.cv %}
+            {% if page.cv && site.resumes %}
             <div>
-                <button type="button" class="btn-cv btn-info hvr-grow-shadow">
-                    <span class="flag-icon flag-icon-bl"></span>
-                    <a href="/assets/files/CV_Chuan_Dong_FR.pdf" download="CV_Chuan_DONG_FR.pdf">Français</a>
-                </button>
-                <button type="button" class="btn-info hvr-grow-shadow">
-                    <span class="flag-icon flag-icon-gb"></span>
-                    English
-                </button>
-                <button type="button" class="btn-info hvr-grow-shadow">
-                    <span class="flag-icon flag-icon-cn"></span>
-                    中文
-                </button>
+                {% for resume in site.resumes %}
+                <a href="{{resume.link}}" download>
+                    <button type="button" class="btn-info hvr-grow-shadow">
+                        <span class="flag-icon flag-icon-{{resume.icon}}"></span>
+                        {{resume.lang}}
+                    </button>
+                </a>
+                {% endfor %}
             </div>
             {% endif %}
         </div>
