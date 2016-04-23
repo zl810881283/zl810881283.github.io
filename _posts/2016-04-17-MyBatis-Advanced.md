@@ -2,7 +2,7 @@
 layout: post
 title: MyBatis association collection and discriminator
 category: MyBatis
-tags: [mybatis]
+tags: [mybatis, java]
 ---
 
 Quick note about MyBatis association, collection and discriminator.
@@ -11,6 +11,26 @@ Quick note about MyBatis association, collection and discriminator.
 
 `<association>` deals with a "has-one" type relationship. For example, in our example, an Author has an User account with username and password:
 
+```java 
+public class User {
+
+	private int id;
+	private String userName;
+	private String password;
+
+	// Getters and Setters
+}
+
+public class Author {
+
+	private Integer id;
+	private String realName;
+	private String IDCard;
+	private User user; // In DB, author table has a foreign key userID refering id in user table
+	
+	// Getters and Setters
+}
+```
 {% highlight java %}
 public class User {
 
