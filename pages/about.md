@@ -19,6 +19,12 @@ permalink: /about
 {% for social in site.socials %}- {{social.type}}: [@{{social.account}}]({{social.home}})
 {% endfor %}
 
+## Relative Links
+
+- [Published PPT](http://ppt.jamesblog.com.cn)
+- [No.1 team's redmine](http://redmine.jamesblog.com.cn)
+- [Project done by myself - zhazha.pw](http://zhazha.jamesblog.com.cn)
+ 
 ## Skill Keywords
 
 ### Software Engineer Keywords
