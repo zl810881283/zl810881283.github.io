@@ -55,10 +55,12 @@ gems:
   - jekyll-html-pipeline
   - jekyll-paginate
 
-analytics :
-  provider : google
-  google :
-      tracking_id : 'UA-76860417-1'
+analytics:
+  provider: baidu
+  google:
+    tracking_id: 'UA-76860417-1'
+  baidu:
+    tracking_id: 'f0c036c8faf0eda95f1daedde0f0a398'
 
 # ---------------- #
 #    Navigation    #
