@@ -2,7 +2,7 @@ jQuery(function ($) {
   "use strict";
   $('a[href^="#"]').click(function($event){
     $event.preventDefault();
-    $event.preventBubble();
+    $event.stopPropagation();
     var hash=$(this).attr('href');
     if(history.pushState) {
       history.pushState(null, null, hash);
