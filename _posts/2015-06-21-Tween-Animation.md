@@ -18,43 +18,43 @@ We have four kinds tween animation: Alpha, Rotate, Translate, Scale.
 
 ### AlphaAnimation 
 
-{% highlight java %}
+```java
 AlphaAnimation a = new AlphaAnimation(0, 1); // From 0 to 1
 a.setDuration(1000); // 1s
 View.startAnimation(a);
-{% endhighlight %}
+```
 
 Tween animation could also be set in xml. It needs to create firstly a xml file in **/res/anim** folder: animation_alpha.xml.
 
-{% highlight xml %}
+```xml
 <alpha xmlns:android="http://schemas.android.com/apk/res/android"
 android:fromAlpha="0"
 android:toAlpha="1"
 android:duration="1000"
 
 </alpha>
-{% endhighlight %}
+```
 
 Then in the code, we could load one animation its file id.
 
-{% highlight java %}
+```java
 View.startAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.animation_alpha);
-{% endhighlight %}
+```
 
 ### RotateAnimation
 
-{% highlight java %}
+```java
 // From 0 to 360 degree. Rotates around the top left point
 RotateAnimation ra1 = new RotateAnimation(0, 360);
 // Rotates around point (100, 50)
 RotateAnimation ra2 = new RotateAnimation(0, 360, 100, 50);
 // Rotates around UI's own center points
 RotateAnimation ra3 = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-{% endhighlight %}
+```
 
 By xml:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <rotate xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromDegrees="0"
@@ -65,19 +65,19 @@ By xml:
     <!-- 50 means pixels, 50% means UI's own 50% position -->
 
 </rotate>
-{% endhighlight %}
+```
 
 ### TranslateAnimation
 
-{% highlight java %}
+```java
 // X moves from 0 to right 200 pixels 
 // Y moves from 0 down 200 pixels 
 new TranslateAnimation(0, 200, 0, 200);
-{% endhighlight %}
+```
 
 By xml:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <translate xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXDelta="0"
@@ -87,20 +87,20 @@ By xml:
     android:duration="1000" >
 
 </translate>
-{% endhighlight %}
+```
 
 ### ScaleAnimation 
 
-{% highlight java %}
+```java
 // From (100, 50) to scale. By default scale from Top Left
 new ScaleAnimation(0, 1, 0, 1, 100, 50);
 // From UI's own center to scale
 new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-{% endhighlight %}
+```
 
 By xml:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <scale xmlns:android="http://schemas.android.com/apk/res/android"
     android:fromXScale="0"
@@ -113,13 +113,13 @@ By xml:
     <!-- 50 means pixels, 50% means UI's own 50% position -->
 
 </scale>
-{% endhighlight %}
+```
 
 ### How to mix these animations
 
 By adding every animation in **AnimationSet**. We could mix animations together.
 
-{% highlight java %}
+```java
 AlphaAnimation aa = new AlphaAnimation(0, 1);
 aa.setDuration(1000);
 TranslateAnimation ta = new TranslateAnimation(200, 0, 200, 0);
@@ -129,11 +129,11 @@ as = new AnimationSet(true);
 as.setDuration(1000);
 as.addAnimation(aa); // Add Alpha Animation
 as.addAnimation(ta); // Add TranslateAnimation
-{% endhighlight %}
+```
 
 By xml:
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:duration="1000"
@@ -150,13 +150,13 @@ By xml:
         android:toYDelta="0" />
 
 </set>
-{% endhighlight %}
+```
 
 ### Set Listener
 
 We could listner to start/repeat/end of an animation
 
-{% highlight java %}
+```java
 Animation a = AnimationUtils.loadAnimation(MainActivity.this, R.anim.anim);
 a.setAnimationListener(new Animation.AnimationListener() {
 	
@@ -170,5 +170,5 @@ a.setAnimationListener(new Animation.AnimationListener() {
 	public void onAnimationEnd(Animation animation) {}
 
 );		
-{% endhighlight %}
+```
 

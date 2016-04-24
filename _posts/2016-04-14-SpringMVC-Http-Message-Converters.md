@@ -30,9 +30,9 @@ By default, the following HttpMessageConverters instances are pre-enabled:
 
 We must declare explicitly support for annotation-driven MVC controllers
 
-{% highlight java %}
+```java
 <mvc:annotation-driven/>
-{% endhighlight %}
+```
 
 We could also use [`@EnableWebMvc`](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/EnableWebMvc.html) annotation to do the same thing.
 
@@ -40,12 +40,12 @@ We could also use [`@EnableWebMvc`](http://docs.spring.io/spring/docs/current/ja
 
 `@RequestBody` indicates that the **body of the HTTP Request is deserialized to that particular Java entity as method argument**. 
 
-{% highlight java %}
+```java
 @RequestMapping(path = "/user)
 public void test(@RequestBody User user) {
     ...
 }
-{% endhighlight %}
+```
 
 **`Content-Type` header specified by the Client will be used to determine the appropriate converter for it**. So `Content-Type: application/xml` here to choose a xml converter which will convert xml content in request body to User object in method argument.
 
@@ -53,7 +53,7 @@ public void test(@RequestBody User user) {
 
 `@ResponseBody` indicates that the return value of the method is serialized directly to **the body of the HTTP Response**. 
 
-{% highlight java %}
+```java
 @RequestMapping(value = "/getJson")
 public @ResponseBody User test(){
 
@@ -63,16 +63,16 @@ public @ResponseBody User test(){
 
 	return user;
 }
-{% endhighlight %}
+```
 
 **`Accept` header specified by the Client will be used to choose the appropriate Http Converter to marshall the entity**. So `Accept: application/json` here to choose a json converter which will convert user object to json fromat  in the http response body.
 
-{% highlight json %}
+```json
 {
     "password": 1234,
     "username": "DONG",
 }
-{% endhighlight %}
+```
 
 ## Refs
 

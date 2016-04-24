@@ -22,26 +22,26 @@ To use jdbc, we must add related libs firstly in the buildpath/classpath. For ex
 
 ### Import packages
 
-{% highlight java %}
+```java
 import java.sql.*; // JDBC packages.  
 import java.math.*; // To support BigDecimal and BigInteger only
-{% endhighlight %}
+```
 
 Import the following two packages if we need to use extended functionality provided by the Oracle driver. Check more details [here](https://docs.oracle.com/cd/F49540_01/DOC/java.815/a64685/oraext.htm#1000888)
 
-{% highlight java %}
+```java
 import oracle.jdbc.driver.*;
 import oracle.sql.*;
-{% endhighlight %}
+```
 
 ### Register JDBC driver
 
 Prior to JDBC 4.0, we must manually load drivers with the method `Class.forName`
 
-{% highlight java %}
+```java
 Class.forName("com.mysql.jdbc.Driver"); // For mysql
 Class.forName("oracle.jdbc.driver.OracleDriver"); // For oracle
-{% endhighlight %}
+```
 
 For the other drivers, we could check [JDBC Driver List](http://www.sql-workbench.net/manual/jdbc-setup.html) for details.
 
@@ -55,15 +55,15 @@ To open a connection, we must invoke `DriverManager.getConnection()` with follow
 2. Username
 3. Password
 
-{% highlight java %}
+```java
 Connection conn = DriverManager.getConnection("jdbc:mysql://host:port/databaseName", "username", "password");
-{% endhighlight %}
+```
 
 #### MySQL URL example
 
-{% highlight java %}
+```java
 jdbc:mysql://localhost:3306/testDB?useUnicode=true&characterEncoding=utf-8
-{% endhighlight %}
+```
 
 **useUnicode=true&characterEncoding=utf-8** here is very useful to avoid some character problems like Chinese even if you already set utf-8 when created tables.
 
@@ -73,16 +73,16 @@ jdbc:mysql://localhost:3306/testDB?useUnicode=true&characterEncoding=utf-8
 
 For example, now we have **DBConfig.properties**:
 
-{% highlight java %}
+```java
 driver=com.mysql.jdbc.Driver
 url=jdbc:mysql://localhost:3306/testDB?useUnicode=true&characterEncoding=utf-8
 user=root
 password=abcdefg
-{% endhighlight %}
+```
 
 Then load this file and get connection by a DBHelper class:
 
-{% highlight java %}
+```java
 public class DBHelper {
 	
 	private static String driver;
@@ -121,7 +121,7 @@ public class DBHelper {
 
 	}
 }
-{% endhighlight %}
+```
 
 ### Creat a statement 
 
@@ -135,22 +135,22 @@ There are three kinds of statements:
 
 #### Statement
 
-{% highlight java %}
+```java
 Statement stmt = conn.createStatement();
 // ResultSet result = stmt.executeQuery("SELECT * FROM Employees");
-{% endhighlight %}
+```
 
 Because `Statement` does not accept parameters, so we could only use it to execute some static queries.
 
 #### PreparedStatement
 
-{% highlight java %}
+```java
 String SQL = "Update Employees SET age = ? WHERE name = ?";
 PreparedStatement pstmt = conn.prepareStatement(SQL);
 
 preparedStatement.setInt(1, 29);
 preparedStatement.setString(2, "Jack");
-{% endhighlight %}
+```
 
 **?** symbol is known as the **parameter marker**. We must supply values for every parameter before executing SQL statement.
 
@@ -172,7 +172,7 @@ So with the help of parameter marker, we could prepare a SQL statement which wil
 
 > For prepared statement, do not need to string sql as input.
 
-{% highlight java %}
+```java
 // Statement
 Statement stmt = conn.createStatement();
 String sql = "SELECT id, first, last, age FROM Employees";
@@ -185,36 +185,36 @@ PreparedStatement pstmt = conn.prepareStatement(SQL);
 preparedStatement.setInt(1, 29);
 preparedStatement.setString(2, "Jack");
 int i = preparedStatement.executeUpdate();
-{% endhighlight %}
+```
 
 ### Extract datas
 
 We use `ResultSet.getXXX()` to etract datas from result set by **column name**.
 
-{% highlight java %}
+```java
 while(rs.next()){
     String name  = rs.getString("name");
     int age = rs.getInt("age");
 
     //ToDo
 }
-{% endhighlight %}
+```
 
 ### Close
 
 We must clean up environment
 
-{% highlight java %}
+```java
 rs.close(); // Close firstly resultSet
 stmt.close(); // Then we should close statement
 conn.close(); // In the end, close connection
-{% endhighlight %}
+```
 
 ## Transaction
 
 JDBC is in auto-commit mode by default which means every SQL statement is committed to the database upon its completion. For [Transaction](https://en.wikipedia.org/wiki/Transaction_processing) of JDBC, we need to set **false** of `setAutoCommit()` for a connection. So in this way, only when we invoke manually `commit()` of a connection, all the operations will be validated. If any exception happens, we need to `rollback()` which will cancel all the operations:
 
-{% highlight java %}
+```java
 try { 
     …
     conn.setAutoCommit(false);
@@ -234,7 +234,7 @@ try {
     }
     e.printStackTrace(); 
  }
-{% endhighlight %}
+```
 
 #### Using Savepoints
 
@@ -244,7 +244,7 @@ With a savepoint, we could rollback to use the rollback method to undo only the 
 2. `Connection` - `rollback(Savepoint savepoint)`: rolls back to the specified savepoint.
 3. `Statement`/`PreparedStatement` - `releaseSavepoint(Savepoint savepoint)`: releases a savepoint. Do not forget it!
 
-{% highlight java %}
+```java
 conn.setAutoCommit(false);
 Statement stmt = conn.createStatement();
 stmt.executeUpdate("....");
@@ -261,7 +261,7 @@ conn.commit();
 
 // Do not forget to release it!
 stmt.releaseSavepoint(savepoint);
-{% endhighlight %}
+```
 
 ## Batch Processing
 
@@ -271,7 +271,7 @@ Batch Processing allows us to **group related SQL statements into a batch and su
 2. `executeBatch()` is used to start the execution of all the statements grouped together. It returns an array of integers, and each element of the array represents the update count for the respective update statement.
 3. `clearBatch()` removes all the statements you added with the addBatch() method. However, you cannot selectively choose which statement :(
 
-{% highlight java %}
+```java
 conn.setAutoCommit(false);
 
 Statement stmt = conn.createStatement();
@@ -281,11 +281,11 @@ stmt.addBatch("..."); // Add in batch
 ...
 stmt.executeBatch(); // Execute together
 conn.commit();
-{% endhighlight %}
+```
 
 Another example with `PreparedStatement`:
 
-{% highlight java %}
+```java
 PreparedStatement stmt = conn.prepareStatement(
     "INSERT INTO Employees VALUES(?, ?)");
 Employees[] employees = ...;
@@ -297,7 +297,7 @@ for(int i = 0; i < employees.length; i++) {
 }
 
 stmt.executeBatch(); // Execute together
-{% endhighlight %}
+```
 
 ## Ref
 

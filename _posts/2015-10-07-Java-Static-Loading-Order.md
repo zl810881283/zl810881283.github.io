@@ -17,7 +17,7 @@ tags: [java]
 
 This question confused me a lot when I learnt lazy initialization holder class of `Singleton` design pattern. 
 
-{% highlight java %}
+```java
 public class Singleton {
 
     private Singleton(){}
@@ -30,7 +30,7 @@ public class Singleton {
         return SingletonHolder.instance;
     }
 }
-{% endhighlight %}
+```
 
 So why here it could be a `Singleton`? How is the order of initialization?! 
 
@@ -40,7 +40,7 @@ From this moment, a question comes into my mind? What's the order to initializer
 
 Let's see amore complexe situation:
 
-{% highlight java %}
+```java
 public class Singleton {
      
     public static class Inner{
@@ -69,7 +69,7 @@ public class Singleton {
         Singleton.getInstance();
     }
 }
-{% endhighlight %}
+```
 
 Output:
 
@@ -88,7 +88,7 @@ So From the output, we get the following process:
 
 Now let's exchange positions of static field and static variable of inner class:
 
-{% highlight java %}
+```java
 public static class Inner{
     public final static Singleton testInstance = new Singleton(3);
         
@@ -96,7 +96,7 @@ public static class Inner{
         System.out.println("Inner Static Field");
     }
 }
-{% endhighlight %}
+```
 
 Output:
 
@@ -121,7 +121,7 @@ From [section 12.4.2](http://docs.oracle.com/javase/specs/jls/se7/html/jls-12.ht
  
 ### With Parent
 
-{% highlight java %}
+```java
 public class Parent {
 
     public Parent() {
@@ -155,7 +155,7 @@ public class Child extends Parent {
         new Child();
     }
 }
-{% endhighlight %}
+```
 
 Output:
 

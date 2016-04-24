@@ -15,9 +15,9 @@ This post is a summary after studying [Apache Struts 2 Documentation - ONGL](htt
 
 Before using ONGL, we need to import it in JSP page:
 
-{% highlight java %}
+```java
 <%@ taglib prefix="s" uri="/struts-tags" %>
-{% endhighlight %}
+```
 
 ## Control Tags
 
@@ -33,7 +33,7 @@ Before using ONGL, we need to import it in JSP page:
 
 `if` and `elseif` must have `test` attribute in which should be a boolean expression.
 
-{% highlight JSP %}
+```JSP
 // Set a parameter called 'age' with value 30
 <s:set name="age" value="30"/>
 <s:if test="#age>60">    
@@ -45,7 +45,7 @@ Before using ONGL, we need to import it in JSP page:
 <s:else>    
     young  
 </s:else>
-{% endhighlight %}
+```
 
 ### iterator
 
@@ -73,7 +73,7 @@ if `status="test"`,
 
 If now we have a list called employeeList which is `List<Employee>`. Employee has two attributes `name` and `age` with **getter/setter**:
 
-{% highlight JSP %}
+```JSP
 <table>
 	<s:iterator value="employeeList" status="list">
 		<tr>
@@ -83,11 +83,11 @@ If now we have a list called employeeList which is `List<Employee>`. Employee ha
 		</tr>   
 	</s:iterator>  
 </table>
-{% endhighlight %}
+```
 
 If it's **List\<String\>**, use `s:property` without `value` to present a string element in the list:
 
-{% highlight JSP %}
+```JSP
 <table>
 	<s:iterator value="numberList" status="list2">
 		<tr>
@@ -96,11 +96,11 @@ If it's **List\<String\>**, use `s:property` without `value` to present a string
 		</tr>   
 	</s:iterator>  
 </table>
-{% endhighlight %}
+```
 
 If it's **Map**:
 
-{% highlight JSP %}
+```JSP
 <table>
 	<s:iterator value="keyValueMap" status="map">
 		<tr>
@@ -110,7 +110,7 @@ If it's **Map**:
 		</tr>   
 	</s:iterator>  
 </table>
-{% endhighlight %}
+```
 
 ### append
 
@@ -127,7 +127,7 @@ The new collection has the following order (different from tag `merge):
 
 The following example shows three lists of type `List<String>` to be appended together. These three lists are passed by some Action.
 
-{% highlight JSP %}
+```JSP
 <s:append var="newList">
      <s:param value="list1" />
      <s:param value="list2" />
@@ -136,7 +136,7 @@ The following example shows three lists of type `List<String>` to be appended to
 <s:iterator value="#newList">
      <s:property />
 </s:iterator>
-{% endhighlight %}
+```
 
 ### merge
 
@@ -163,25 +163,25 @@ The same as `append` but in different order:
 
 A string separated by ",":
 
-{% highlight JSP %}
+```JSP
 <s:generator val="%{'aaa,bbb,ccc,ddd,eee'}" count="3" separator=",">
 	<s:iterator>
     	<s:property />
 	</s:iterator>
 </s:generator>
-{% endhighlight %}
+```
 
 Generate an iterator with comparator attribute:
 
-{% highlight JSP %}
+```JSP
 <s:generator val="%{'aaa,bbb,ccc,ddd,eee'}" separator="," converter="myConverter">
 	<s:iterator>
      return<s:property /><br/>
 	</s:iterator>
 </s:generator>
-{% endhighlight %} 
+``` 
 
-{% highlight java %}
+```java
 public class GeneratorTagAction extends ActionSupport {
     ...
     // getMyConverter function name -> converter="myConverter"
@@ -194,7 +194,7 @@ public class GeneratorTagAction extends ActionSupport {
     }
     ...
 }
-{% endhighlight %}
+```
 
 This will generate an iterator with each entries decided by the converter supplied. With
 this converter, it simply add "converter-" to each entries.
@@ -213,18 +213,18 @@ this converter, it simply add "converter-" to each entries.
 
 Simply subset:
 
-{% highlight JSP %}
+```JSP
 <!-- myList is a List<String> given by action -->
 <s:subset source="myList">
     <s:iterator>
 		<s:property />
     </s:iterator>
 </s:subset>
-{% endhighlight %}
+```
 
 With decider:
 
-{% highlight java %}
+```java
 public class MySubsetTagAction extends ActionSupport {
 	
 	...
@@ -237,16 +237,16 @@ public class MySubsetTagAction extends ActionSupport {
     	};
     }
 }
-{% endhighlight %}
+```
 
-{% highlight JSP %}
+```JSP
 <!-- myList is a List<String> given by action -->
 <s:subset source="myList" decider="myDecider">
     <s:iterator>
  		<s:property />
     </s:iterator>
 </s:subset>
-{% endhighlight %}
+```
 
 ### Sort
 
@@ -262,7 +262,7 @@ It **sorts a List using a Comparator**
 
 Sort by string length:
 
-{% highlight JSP %}
+```JSP
 <s:set name="test" value="{'aefi','abc','world!','kkkkk'}" />
 <s:bean id="sort" name="action.SortComparator"></s:bean>
 <s:sort source="test" comparator="sort">
@@ -270,16 +270,16 @@ Sort by string length:
         <s:property />
     </s:iterator>
 </s:sort>
-{% endhighlight %}
+```
 
-{% highlight java %}
+```java
 public class SortComparator implements Comparator<Object> {
     public int compare(Object arg0, Object arg1) {
     	// Compare by length
         return arg0.toString().length() - arg1.toString().length();
     }
 }
-{% endhighlight %}
+```
 
 ## Data Tags
 
@@ -300,7 +300,7 @@ It could call actions directly from a JSP page by specifying the action name and
  
 #### Example
 
-{% highlight java %}
+```java
 public class ActionTagAction extends ActionSupport {
  
 	public String execute() throws Exception {
@@ -312,20 +312,20 @@ public class ActionTagAction extends ActionSupport {
      	return SUCCESS;
  	}
 }
-{% endhighlight %}
+```
 
-{% highlight xml %}
+```xml
 <action name="actionA" class="com.dong.test">
     <result name="success">test.jsp</result>
 </action>
 <action name="actionB" class="com.dong.test" method="test">
     <result name="success">test.jsp</result>
 </action>
-{% endhighlight %}
+```
 
 When we acess the test page with a request parameter - `localhost:8000/index?author=Dong`:
 
-{% highlight JSP %}
+```JSP
 <!-- success.jsp will be included in this page -->
 <!-- And show "test - Dong"-->
 <s:action name="actionA" executeResult="true" />
@@ -338,7 +338,7 @@ When we acess the test page with a request parameter - `localhost:8000/index?aut
 <!-- But put a String in request scope under an id "variable" which will be retrieved using property tag -->
 <s:action name="actionB" executeResult="false" />
 <s:property value="#attr.variable" /><!-- #attr is to access to PageContext if available , we use value="variable" directly -->
-{% endhighlight %}
+```
 
 ## Ref
 - [Tag reference](https://struts.apache.org/docs/generic-tag-reference.html)

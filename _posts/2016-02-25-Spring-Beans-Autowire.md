@@ -22,7 +22,7 @@ There are mainly four types:
 
 **Autowiring by property name**. Spring container looks at the properties of the beans on which autowire attribute is set to byName in the XML configuration file. It then tries to match and wire its properties with the beans defined by the same names in the configuration file.
 
-{% highlight java %}
+```java
 public class Test {  
 
     private TestBean testBean; 
@@ -32,14 +32,14 @@ public class Test {
       
     // Getter and setter
 }
-{% endhighlight %}
+```
 
 Then in XML configuration, spring container finds a bean with id `testBean`.
 
-{% highlight xml %}
+```xml
 <bean id="testBean" class="com.dong.TestBean"/>  
 <bean id="test" class="com.dong.test" autowire="byName"/>
-{% endhighlight %}
+```
 
 We could in the mean time **using `<propery ref='xxx' ...` to override the value from autowiring by name**.
 
@@ -47,7 +47,7 @@ We could in the mean time **using `<propery ref='xxx' ...` to override the value
 
 **Autowiring by property datatype**. Spring container looks at the properties of the beans on which autowire attribute is set to byType in the XML configuration file. It then tries to match and wire a property if its type matches with exactly one of the beans name in configuration file. **If more than one such beans exists, a fatal exception is thrown.**
 
-{% highlight java %}
+```java
 public class Test {  
 
     private TestBean testBean; 
@@ -57,14 +57,14 @@ public class Test {
       
     // Getter and setter
 }
-{% endhighlight %}
+```
 
 Then in XML configuration, spring container finds a bean with type `TestBean`.
 
-{% highlight xml %}
+```xml
 <bean id="testBean" class="com.dong.TestBean"/>  
 <bean id="test" class="com.dong.test" autowire="byType"/>  
-{% endhighlight %}
+```
 
 We could in the mean time **using `<propery ref='xxx' ...` to override the value from autowiring by type**.
 
@@ -72,7 +72,7 @@ We could in the mean time **using `<propery ref='xxx' ...` to override the value
 
 **Similar as byType, but type applies to constructor arguments**. If there is not exactly one bean of the constructor argument type in the container, a fatal error is raised.
 
-{% highlight java %}
+```java
 public class Test {  
 
     private TestBean testBean; 
@@ -84,14 +84,14 @@ public class Test {
 
     // Getter and setter
 }
-{% endhighlight %}
+```
 
 Then in XML configuration, spring container finds a bean with id `testBean`.
 
-{% highlight xml %}
+```xml
 <bean id="testBean" class="com.dong.TestBean"/>  
 <bean id="test" class="com.dong.test" autowire="constructor"/>
-{% endhighlight %}
+```
 
 Unlike byType and byName using `<propery ref='xxx' ...` to override, `<constructor-args ..>` can not mix with autowire
 
@@ -107,13 +107,13 @@ Spring automatically detects which type to use. **It firstly tries to autowire b
 
 We could use `default-autowire` on `<beans></beans>` instead of repeating autowire type setting on each bean:
 
-{% highlight xml %}
+```xml
 <beans default-autowire="byType" .....> 
-{% endhighlight %}
+```
 
 For the beans including in `<beans></beans>` , we could ovrride it by setting autowire type explicitly:
 
-{% highlight xml %}
+```xml
 <beans default-autowire="byType" .....> 
 
 	<bean id="testBean" class="com.dong.TestBean"/>  
@@ -122,13 +122,13 @@ For the beans including in `<beans></beans>` , we could ovrride it by setting au
 	// Other beans
 
 </beans>
-{% endhighlight %}
+```
 
 ## autowire-candidate
 
 We could use `autowire-candidate` to **exclude a bean from autowiring**. By default, all the beans have `autowire-candidate` with true value implicitly. So we need to set it to false to exclude this bean.
 
-{% highlight xml %}
+```xml
 <beans default-autowire="byType" .....> 
 
 	<bean id="testBean" class="com.dong.TestBean"/>
@@ -140,7 +140,7 @@ We could use `autowire-candidate` to **exclude a bean from autowiring**. By defa
 	// Other beans
 
 </beans>
-{% endhighlight %}
+```
 
 ## Ref
 

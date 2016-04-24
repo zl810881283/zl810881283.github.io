@@ -35,7 +35,7 @@ PS: Both of these two interfaces could achieve this. `Bundle.putSerializable(Key
 
 If you need to transfer complex data types (objects) between components like Activity or Service. For simple data like int, just use Intent directly.
 
-{% highlight java %}
+```java
 public class ObjectA implements Parcelable {
  
 	private String strValue;
@@ -109,6 +109,6 @@ public class ObjectA implements Parcelable {
 	public void setIntValue(Integer intValue) { this.intValue = intValue; }
  
 }
-{% endhighlight %}
+```
 
 

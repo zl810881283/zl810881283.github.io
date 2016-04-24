@@ -20,34 +20,34 @@ Annotation for **mapping web requests onto specific handler classes and/or handl
 
 * `method` indicates HTTP methods. It will support all methods if not specified .
 
-{% highlight java %}
+```java
 method = RquestMethod.GET
 method = {RquestMethod.GET, RquestMethod.POST}
-{% endhighlight %}
+```
 
 * `consumes` indicates Content-Type of the mapped request. A request will be mapped only when its Content-Type matches it.
 
-{% highlight java %}
+```java
 consumes = "application/json"
 consumes = {"application/json", "text/html"}
-{% endhighlight %}
+```
 
 * `produces` indicates the producible media types of the mapped request, **a request will be mapped only when Accept matches it**.
 
-{% highlight java %}
+```java
 produces = "application/json"
 produces = {"application/json", "charset=UTF-8"}
-{% endhighlight %}
+```
 
 * `headers` indicates only the requests having these headers can be mapped.
 
-{% highlight java %}
+```java
 headers = "content-type=text/*"
-{% endhighlight %}
+```
 
 * `params` indicates only the requests having these parameters can be mapped. We could also add `!=` pr `==` to add conditions.
 
-{% highlight java %}
+```java
 // myParam exists and its value is myValue
 params="myParam = myValue" 
 
@@ -59,11 +59,11 @@ params = "myParamA"
 
 // myParamA exists and myParamB does not exits
 params = {"myParamA", "!myParamB"} 
-{% endhighlight %}
+```
 
 ### Example
 
-{% highlight java %}
+```java
 @Controller
 @RequestMapping("/users") 
 public class TestController {
@@ -81,7 +81,7 @@ public class TestController {
     }
 
 }
-{% endhighlight %}
+```
 
 ### Ant-style path patterns to indicate map url.
 
@@ -96,7 +96,7 @@ public class TestController {
 
 >If we do not specify the url placeholder name like `@PathVariable('name')`, we must keep method parameter name  same as url placeholder.
 
-{% highlight java %}
+```java
 @Controller
 @RequestMapping("/users") 
 public class TestController {
@@ -113,11 +113,11 @@ public class TestController {
     //	// ToDo
     //}
 }
-{% endhighlight %}
+```
 
 A more complex example:
 
-{% highlight java %}
+```java
 @Controller
 @RequestMapping("/users/{userId}")
 public class TestController {
@@ -128,7 +128,7 @@ public class TestController {
   	}
 
 }
-{% endhighlight %}
+```
 
 ## @RequestParam 
 
@@ -136,7 +136,7 @@ It is used to **bind request parameters to a method parameter in the controller*
 
 As usual, we do it like this `request.getParameter("name")`, now with annotation:
 
-{% highlight java %}
+```java
 @RequestMapping(value="/user/{userId}/books", method = RequestMethod.GET)
 public void test(
 	@PathVariable("userId") int user,
@@ -144,7 +144,7 @@ public void test(
   	    ...
   	}
 }
-{% endhighlight %}
+```
 
 It has three properties:
 
@@ -159,12 +159,12 @@ It has three properties:
 
 Same as `@RequestParam` but bind cookie values to a method parameter. It also has three properties `value`, `required` and `defaultValue` which are also the same 
 
-{% highlight java %}
+```java
 @RequestMapping(value="/user", method = RequestMethod.GET)
 public void test(@CookieValue("foo") String valueFromCookie) {
   	...
 }
-{% endhighlight %}
+```
 
 ## @RequestBody and @ResponseBody
 

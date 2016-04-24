@@ -25,7 +25,7 @@ Persistent objects should be in one of the following three states at a given poi
 
 To open a session, it's better to create an util class:
 
-{% highlight java %}
+```java
 public class HibernateUtils {
 
 	private static SessionFactory sessionFactory;
@@ -63,13 +63,13 @@ public class HibernateUtils {
 		}
 	}
 }
-{% endhighlight %}
+```
 
 To use `getCurrentSession()`, it needs to add in hibernate.cfg.xml:
 
-{% highlight xml %}
+```xml
 <property name="hibernate.current_session_context_class">thread</property>
-{% endhighlight %}
+```
 
 ### openSession vs getCurrentSession
 
@@ -87,7 +87,7 @@ The "CurrentSession" refers to a Hibernate Session bound by Hibernate behind the
 
 `save()` results in an SQL INSERT. It persists the given transient instance, first assigning a generated identifier. In brief, it adds/saves a new entity into database.
 
-{% highlight java %}
+```java
 Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
@@ -100,7 +100,7 @@ session.save(user);
 
 tx.commit();
 // Because getCurrentSession(), so no need session.close();
-{% endhighlight %} 
+``` 
 
 But be careful here, `save()` does not guarantee the same, it returns an identifier, and if an INSERT has to be executed to get the identifier, **this INSERT happens immediately**, no matter if you are inside or outside of a transaction. This is not good in a long-running conversation with an extended Session/persistence context.
 
@@ -112,7 +112,7 @@ But be careful here, `save()` does not guarantee the same, it returns an identif
 
 `load()` and `get()` result in an SQL `SELECT BY ID`. It returns the persistent instance of the given entity class with the given identifier.(`load()` returna a "proxy")
 
-{% highlight java %}
+```java
 Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
@@ -121,7 +121,7 @@ User user = (User) session.load(User.class, 1); // 1 is the identifier in the da
 
 tx.commit();
 // Because we use getCurrentSession, so no need to run session.close();
-{% endhighlight %} 
+``` 
 
 ### Different between load() and get()
 
@@ -137,7 +137,7 @@ If I'm not sure whether the object exists or not, I use `get()` to avoid an exce
 
 Which function will result in SQL `UPDATE`? We could find `update()` or `saveOrUpdate()`. But we need to know firstly, there is no need to call these functions to do update. When we `get()/load()` a persistent object, and then call setters to modify something. After transaction `commit()` or session `flush()`. Database will be updated.
 
-{% highlight java %}
+```java
 Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
@@ -147,13 +147,13 @@ user.setAge(30);
 session.flush();
 // or tx.commit(); it does the same thing
 // Because getCurrentSession(), so no need session.close();
-{% endhighlight %} 
+``` 
 
 ### update() 
 
 So why we need `update()`? In fact, it's mainly used to updated a detached object which was ever a persistent object and now session is closed. When `update()` a detached object, **it will become persistent again**.
 
-{% highlight java %}
+```java
 Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
@@ -177,7 +177,7 @@ secondSession.update(user);
 // Commit!
 tx.commit();
 // Because getCurrentSession(), so no need secondSession.close();
-{% endhighlight %} 
+``` 
 
 ### saveOrUpdate()
 
@@ -189,7 +189,7 @@ It means either `save()` or `update()` the given instance on the basis of identi
 
 The difference with `update()` is that `update()` tries to reattach the instance, meaning that there is no other persistent object with the same identifier attached to the Session right now otherwise NonUniqueObjectException is thrown. `merge()`, however, just copies all values to a persistent instance in the Session (which will be loaded if it is not currently loaded). The input object is not changed. So merge is more general than `update()`, but may use more resources.
 
-{% highlight java %}
+```java
 Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
@@ -210,16 +210,16 @@ session.update(user1); // It throws NonUniqueObjectException because in the sess
 
 tx.commit();
 // Because we use getCurrentSession, so no need session.close();
-{% endhighlight %} 
+``` 
 
 So if in this situation, we should use `merge()`, it needs to merge user1 with user2:
 
-{% highlight java %}
+```java
 User user2 = (User) session.get(User.class, 2);
 User user3 = (User) session.merge(user1);
 
 // user3 == user2 true
-{% endhighlight %} 
+``` 
 
 So here merge returns the **same reference** of user2.
 
@@ -227,7 +227,7 @@ So here merge returns the **same reference** of user2.
 
 `delete()` results in SQL `DELETE`
 
-{% highlight java %}
+```java
 Session session = HibernateUtils.getSession();
 Transaction tx = session.beginTransaction();
 
@@ -236,7 +236,7 @@ session.delete(user);
 
 tx.commit();
 // Because getCurrentSession(), so no need session.close();
-{% endhighlight %} 
+``` 
 
 ## find()
 
@@ -253,7 +253,7 @@ By default, Hibernate will flush changes automatically for you:
 
 We could also set flush mode, by default is AUTO:
 
-{% highlight java %}
+```java
 // The Session is flushed before every query.
 session.setFlushMode(FlushMode.ALWAYS);
 // The Session is sometimes flushed before query execution in order to ensure that queries never return stale state.
@@ -262,7 +262,7 @@ session.setFlushMode(FlushMode.AUTO);
 session.setFlushMode(FlushMode.COMMIT);
 // The Session is only ever flushed when Session.flush() is explicitly called by the application.
 session.setFlushMode(FlushMode.MANUAL);
-{% endhighlight %} 
+``` 
 
 Be careful, **setFlushMode() must be invoked before session.beginTransaction()**.
 

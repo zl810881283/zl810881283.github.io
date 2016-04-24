@@ -11,11 +11,11 @@ tags: [android]
 
 Animator is for **Interactive animation**. In general, we use animation like this: 
 
-{% highlight java %}
+```java
 TranslateAnimation animation = new TranslateAnimation(0, 200, 0, 0); // Change x from 0 to 200 animation.setDuration(1000); 
 animation.setFillAfter(true); // View will stay in the position where animation finished. Not return back 
 imageView.startAnimation(animation);
-{% endhighlight %}
+```
 
 But here if you add a onClick listener. You will find, clicParcelable-Interface.mdking on the new location where the view is located currently doesn't work! But clicking on the previous location works?! Because Animation only **redraws** UI. But the response location won't change. So it's not fit with interactive animation.
 
@@ -33,7 +33,7 @@ To animate a property of target object. **It needs Get/Set functions for this pr
 
 ### How to use ObjectAnimator
 
-{% highlight java %}
+```java
 ImageView im = (ImageView) findViewById(R.id.iamge);
 
 // First parameter is the view to be animated. Second parameter is the name of property
@@ -44,24 +44,24 @@ ObjectAnimator.ofFloat(im, "X", 0f, 200f).setDuration(1000).start();
 ObjectAnimator.ofFloat(im, "Y", 0f, 200f).setDuration(1000).start();
 
 ObjectAnimator.ofFloat(im, "rotation", 0f, 360f).setDuration(1000).start();
-{% endhighlight %}
+```
 
 But you will see here, **all actions run in the mean time beacasue start() is asynchronous**. So here we could use PropertyValuesHolder and AnimatorSet to control animators to run.
 
 ### PropertyValuesHolder
 
-{% highlight java %}
+```java
 PropertyValuesHolder p1 = PropertyValuesHolder.ofFloat("translationX", 0F, 200F); PropertyValuesHolder p2 = PropertyValuesHolder.ofFloat("translationY", 0F, 200F); PropertyValuesHolder p3 = PropertyValuesHolder.ofFloat("rotation", 0F, 360F); 
 
 // Run all the property values together 
 ObjectAnimator.ofPropertyValuesHolder(im, p1, p2, p3).setDuration(1000).start();
-{% endhighlight %}
+```
 
 ### AnimatorSet
 
 AnimatorSet is more powful:
 
-{% highlight java %}
+```java
 AnimatorSet set = new AnimatorSet(); 
 Animator animator1 = ObjectAnimator.ofFloat(im, "translationX", 0F, 200F); 
 Animator animator2 = ObjectAnimator.ofFloat(im, "translationY", 0f, 200f); 
@@ -78,7 +78,7 @@ set.play(animator2).with(animator3).setDuration(1000).start();
 
 // Run 1 after 3
 set.play(animator1).after(animator3).setDuration(1000).start();
-{% endhighlight %}
+```
 
 ### Set Listener
 
@@ -86,7 +86,7 @@ Two ways:
 1. new Animator.AnimatorListener()
 2. new AnimatorListenerAdapter()
 
-{% highlight java %}
+```java
 Animator.AnimatorListener needs to override all the four functions. With AnimatorListenerAdapter, we conly need to override the functions we need.
 
 ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 0F, 1F); 
@@ -118,11 +118,11 @@ animator.addListener(new Animator.AnimatorListener() {
 */
 
 animator.start();
-{% endhighlight %}
+```
 
 ### How to use ValueAnimator
 
-{% highlight java %}
+```java
 // Animator calulates from 0 to 100 in 5 seconds 
 ValueAnimator animator = ValueAnimator.ofInt(0, 100); 
 animator.setDuration(5000); 
@@ -138,7 +138,7 @@ animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 });
 
 animator.start();
-{% endhighlight %}
+```
 
 ### ValueAnimator for Object
 
@@ -150,10 +150,10 @@ The idea is that the float fraction determines the position at which to interpol
 * When fraction is 1.0 then it should return the end value. 
 * For any number between 0.0 and 1.0, it should return an object that lies somewhere between the start value and the end value.
 
-{% highlight java %}
+```java
 ValueAnimator animator = ValueAnimator.ofObject(new TypeEvaluator<Object>() { 
 	@Override 
 	public Object evaluate(float v, Object startValue, Object endValue) { 
 		// ToDo return your object according to v (0.0 to 1.0)
 });
-{% endhighlight %}
+```

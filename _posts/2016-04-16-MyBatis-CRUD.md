@@ -15,7 +15,7 @@ Quick note about MyBatis configuration and CRUD.
 
 * `<mappers>` contains **a list of mappers** – the XML files and/or annotated Java interface classes that contain **SQL statements and mapping definitions**.
 
-{% highlight xml %}
+```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -41,13 +41,13 @@ Quick note about MyBatis configuration and CRUD.
   	</mappers>
 
 </configuration>
-{% endhighlight %}
+```
 
 ## SqlSessionFactory
 
 One SqlSessionFactory instance per database. 
 
-{% highlight java %}
+```java
 String resource = "path/to/mybatis-config.xml";
 InputStream inputStream = Resources.getResourceAsStream(resource);
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -63,7 +63,7 @@ try {
 } finally {
 	session.close();
 }
-{% endhighlight %}
+```
 
 > If `<transactionManager>` is set as JDBC. We could call directly `commit()` and `rollback()` to control transaction.
 
@@ -73,11 +73,11 @@ try {
 
 Before CRUD, better to know `<typeAliases>`. It sets a shorter name for a Java type to **reduce redundant typing of fully qualified classnames**.
 
-{% highlight xml %}
+```xml
 <typeAliases>
 	<typeAlias alias="User" type="com.dong.demo.User"/>
 </typeAliases>
-{% endhighlight %}
+```
 
 So in all the following example, we use directly short name instead of full qualified classname.
 
@@ -97,7 +97,7 @@ Some properties:
 
 #### Examples
 
-{% highlight xml %}
+```xml
 <!-- #{id} type is int, and return type is User -->
 <select id="findById" parameterType="int" resultType="User">
 	select * from user where id=#{id}
@@ -131,11 +131,11 @@ Some properties:
 <select id="selectUsers" resultMap="userMap"> 
 	select id, userName, password from User
 </select>
-{% endhighlight %}
+```
 
 After including above xml file in mybatis configuration file. We could defined SQL statement from java code:
 
-{% highlight java %}
+```java
 // Select one
 User user = session.selectOne("findById", 1); // 1 will be the value of #{id} in statement
 
@@ -156,54 +156,54 @@ User result = session.selectOne("login2", user);
 
 // By resultMap
 List<User> listUsers = session.selectList("selectUsers");
-{% endhighlight %}
+```
 
 ### update
 
 XML sql statement definition:
 
-{% highlight xml %}
+```xml
 <update id="updateUser" parameterType="User">
 	UPDATE user SET
 	userName=#{userName},
 	password=#{password}
 	WHERE id = #{id}
 </update>
-{% endhighlight %}
+```
 
 Java code to call it: 
 
-{% highlight java %}
+```java
 User user = new User(); 
 user.setUserName("dong");
 user.setPassword("123456");
 user.setId(2);
 
 session.update("updateUser", user);
-{% endhighlight %}
+```
 
 ### insert
 
 XML sql statement definition:
 
-{% highlight xml %}
+```xml
 <insert id="insertUser" parameterType="User" statementType="PREPARED"
 	keyProperty="id" useGeneratedKeys="true">
 	insert into user
 	(userName,password) values
 	(#{userName},#{password})
 </insert>
-{% endhighlight %}
+```
 
 Java code to call it: 
 
-{% highlight java %}
+```java
 User user = new User(); 
 user.setUserName("dong");
 user.setPassword("123456");
 
 session.insert("insertUser", user);
-{% endhighlight %}
+```
 
 `keyProperty="id"` and `useGeneratedKeys="true"` are used to tell mybatis to use JDBC getGeneratedKeys to get ID generated inner DB and set it to property id.
 
@@ -211,46 +211,46 @@ session.insert("insertUser", user);
 
 XML sql statement definition:
 
-{% highlight xml %}
+```xml
 <delete id="deleteAuthor" parameterType="int">
   	delete from User where id = #{id}
 </delete>
-{% endhighlight %}
+```
 
 Java code to call it:
 
-{% highlight java %}
+```java
 session.delete("deleteAuthor", 1);
-{% endhighlight %}
+```
 	
 ### By annotation
 
 To use annotation instead of xml definition. We need to define an **interface** to declare all CRUD operations:
 
-{% highlight java %}
+```java
 public interface AnnotationMapper {
 
 	@Delete("delete from User where id=#{id}")
 	public void deleteUser(Integer id);
 
 }
-{% endhighlight %}
+```
 
 Same as including mapper xml files, we need to include above class in configuration file:
 
-{% highlight xml %}
+```xml
 <mappers>
   	<mapper class="com.dong.map.AnnotationMapper"/>
 	...
 </mappers>
-{% endhighlight %}
+```
 
 Java code to call it:
 
-{% highlight java %}
+```java
 AnnotationMapper test = session.getMapper(AnnotationMapper.class);
 test.deleteUser(1);
-{% endhighlight %}
+```
 
 ## Refs
 

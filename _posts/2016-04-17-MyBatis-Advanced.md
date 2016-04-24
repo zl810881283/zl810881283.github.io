@@ -6,13 +6,12 @@ tags: [mybatis, java]
 ---
 
 Quick note about MyBatis association, collection and discriminator.
-$$ \sqrt(x) $$
 
 ## association
 
 `<association>` deals with a "has-one" type relationship. For example, in our example, an Author has an User account with username and password:
 
-```java 
+```java
 public class User {
 
 	private int id;
@@ -32,6 +31,8 @@ public class Author {
 	// Getters and Setters
 }
 ```
+
+And in xml map file, we need to define result Map of \`Author\`:
 
 ```xml
 <resultMap id="AuthorMap" type="Author">
@@ -49,49 +50,10 @@ public class Author {
 	select * from author inner join user on user.id = author.userID
 </select>
 ```
-{% highlight java %}
-public class User {
-
-	private int id;
-	private String userName;
-	private String password;
-
-	// Getters and Setters
-}
-
-public class Author {
-
-	private Integer id;
-	private String realName;
-	private String IDCard;
-	private User user; // In DB, author table has a foreign key userID refering id in user table
-	
-	// Getters and Setters
-}
-{% endhighlight %}
-
-And in xml map file, we need to define result Map of `Author`:
-
-{% highlight xml %}
-<resultMap id="AuthorMap" type="Author">
-	<!-- author.id is tableName.id which is used to be distinguished from user.id -->
-	<id property="id" column="author.id"/>
-	<result property="realName" column="realName" />
-	<result property="IDCard" column="IDCard" />
-	<association property="user" column="userID" javaType="User">
-		<id property="id" column="user.id"/>
-		<result property="userName" column="userName" />
-		<result property="password" column="password" />
-	</association>
-</resultMap>
-<select id="selectAuthorJoin" resultMap="AuthorMap">
-	select * from author inner join user on user.id = author.userID
-</select>
-{% endhighlight %}
 
 We could also extract User information as another individual resultMap which could be re-used:
 
-{% highlight xml %}
+```xml
 <resultMap id="AuthorMap" type="Author">
 	...
 	<association property="user" column="userID" javaType="User" resultMap="userMap"/>
@@ -101,28 +63,28 @@ We could also extract User information as another individual resultMap which cou
 	<result property="userName" column="userName" />
 	<result property="password" column="password" />
 </resultMap>
-{% endhighlight %}
+```
 
 To query by java:
 
-{% highlight java %}
+```java
 List<User> userList = session.selectList("selectAuthorJoin");
-{% endhighlight %}
+```
 
 ### Constructor
 
 If we do not care about user id or some other property. We could use `<constructor>` to limit what we want based on constructors of object.
 
-{% highlight java %}
+```java
 public User() {}
 
 public User(String userName, String password) {
 	this.userName = userName;
 	this.password = password;
 }
-{% endhighlight %}
+```
 
-{% highlight xml %}
+```xml
 <resultMap id="AuthorMapByConstructor" type="Author">
 	<id property="id" column="author.id" />
 	<result property="realName" column="realName" />
@@ -137,19 +99,19 @@ public User(String userName, String password) {
 <select id="selectAuthorJoin" resultMap="AuthorMapByConstructor">
 	select * from author inner join user on user.id = author.userID
 </select>
-{% endhighlight %}
+```
 
 ### Subquery
 
 **Subquery/Inner query/Nested query is a query within another SQL query and embedded within the WHERE clause**.
 
-{% highlight sql %}
+```sql
 select * from author where userID in (select id from user)
-{% endhighlight %}
+```
 
 So there are in fact two statements here. Let's define each select statement and resultMap:
 
-{% highlight xml %}
+```xml
 <resultMap id="AuthorSubMap" type="Author">
 	<id property="id" column="author.id" />
 	<result property="realName" column="realName" />
@@ -162,7 +124,7 @@ So there are in fact two statements here. Let's define each select statement and
 <select id="selectAuthorSub" resultMap="AuthorSubMap">
 	select * from author 
 </select>
-{% endhighlight %}
+```
 
 In the above settings, `<association>` will pass `userID` as parameter to `findById`.
 
@@ -181,16 +143,16 @@ Let's firstly find differences between subquery and join query.
 
 To set lazy loading in configuration file, **this setting must be in front of others**:
 
-{% highlight xml %}
+```xml
 <settings>
 	<setting name="lazyLoadingEnabled" value="true"/>
 	<setting name="aggressiveLazyLoading" value="false"/>
 </settings>
-{% endhighlight %}
+```
 
 To test:
 
-{% highlight java %}
+```java
 List<Author> authorList = session.selectList("selectAuthorSub");
 for(Author author:authorList) {
 
@@ -201,7 +163,7 @@ for(Author author:authorList) {
 	System.out.println(auther.getUser().getUserName());
 	
 }
-{% endhighlight %}
+```
 
 So here with lazy loading, if we never need to call `getUser()`, it only queries one time which is efficient!
 
@@ -211,7 +173,7 @@ So here with lazy loading, if we never need to call `getUser()`, it only queries
 
 In the following example, each User could have a list of visitors:
 
-{% highlight java %}
+```java
 public class User {
 
 	private int id;
@@ -231,11 +193,11 @@ public class Visitor {
 
     // Getters and Setters
 }
-{% endhighlight %}
+```
 
 Then in xml map file, we use `<collection>` to indicate that list of visits.
 
-{% highlight xml %}
+```xml
 <resultMap id="visitMap" type="User">
 	<id property="id" column="id" />
 	<result property="userName" column="userName" />
@@ -250,11 +212,11 @@ Then in xml map file, we use `<collection>` to indicate that list of visits.
 <select id="selectVisit" resultMap="visitMap">
 	select * from user inner join visitor on user.id = visit.userID
 </select>
-{% endhighlight %}
+```
 
 To test:
 
-{% highlight java %}
+```java
 List<User> userList = session.selectList("selectVisit"); 
 
 for(User user:userList) {
@@ -267,7 +229,7 @@ for(User user:userList) {
 
 	}	
 }
-{% endhighlight %}
+```
 
 ## discriminator
 
@@ -275,7 +237,7 @@ A single database query might return result sets of many different data types. S
 
 The following resultMap will return different data types according to value of `vehicle_type`.
 
-{% highlight xml %}
+```xml
 <resultMap id="vehicleResult" type="Vehicle">
   <id property="id" column="id" />
   ...
@@ -292,7 +254,7 @@ The following resultMap will return different data types according to value of `
     </case>
   </discriminator>
 </resultMap>
-{% endhighlight %}
+```
 
 ## Refs
 

@@ -13,7 +13,7 @@ To use SpEL, we need **org.springframework.spring-expression** jar.
 
 ## Hello World
 
-{% highlight java %}
+```java
 ExpressionParser parser = new SpelExpressionParser();
 Expression expression = parser.parseExpression("('Hello' + 'World').concat(#end)");
 
@@ -26,7 +26,7 @@ System.out.println(expression.getValue(context)); // HelloWorld!
 EvaluationContext anotherContext = new StandardEvaluationContext();
 context.setVariable("end", "yoyo"); // // Set variable end with value yoyo
 System.out.println(expression.getValue(anotherContext)); // HelloWorldyoyo
-{% endhighlight %}
+```
 
 The interface `EvaluationContext` is used as a context for the expression. The out-of-the-box implementation, StandardEvaluationContext, uses reflection to manipulate the object.
 
@@ -36,7 +36,7 @@ The types of literal expressions supported are strings, dates, numeric values (i
 
 We firstly define a class to test:
 
-{% highlight java %}
+```java
 public class SpELLiteral {
 
 	private int count;
@@ -49,11 +49,11 @@ public class SpELLiteral {
 
 	// Setters and getters
 }
-{% endhighlight %}
+```
 
 In conf-spel.xml, we use `#{expression}` to indicate a SpEL. :
 
-{% highlight xml %}
+```xml
 <bean id="spELLiteral" class="com.dong.demo.SpELLiteral">
 	<property name="count" value="#{5}"/>
 	<property name="message" value="The value is #{5}"/>
@@ -63,11 +63,11 @@ In conf-spel.xml, we use `#{expression}` to indicate a SpEL. :
 	<property name="name2" value='#{"Chuck"}'/>
 	<property name="enabled" value="#{false}"/>
 </bean>
-{% endhighlight %}
+```
 
 To test:
 
-{% highlight java %}
+```java
 ApplicationContext ctx = new ClassPathXmlApplicationContext("conf-spel.xml");
 
 SpELLiteral spelLiteral = ctx.getBean("spELLiteral", SpELLiteral.class);
@@ -79,25 +79,25 @@ System.out.println(spelLiteral.getCapacity());  // 10000.0
 System.out.println(spelLiteral.getName1());     // Chuck
 System.out.println(spelLiteral.getName2());     // Chuck
 System.out.println(spelLiteral.isEnabled());    // false
-{% endhighlight %}
+```
 
 ## Variable
 
 Like above hello world example. We could use variable by `setVariable()` function of `EvaluationContext` which means context for expression. **Variables can be referenced in the expression using the syntax `#variableName`**.
 
-{% highlight java %}
+```java
 ExpressionParser parser = new SpelExpressionParser();
 Expression expression = parser.parseExpression("Name = #newName");
 EvaluationContext context = new StandardEvaluationContext();
 context.setVariable("newName", "dongchuan"); // Set variable newName with value dongchuan
 System.out.println(expression.getValue(context)); // Name = dongchuan
-{% endhighlight %}
+```
 
 ## Xml-based Expression
 
 **SpEL could reference the value of another bean by `#{beanID}` or `#{@beanID}`##. And as it's an expression, we could add some other operations in it:
 
-{% highlight xml %}
+```xml
 <!-- Creat a string with value ' World!'-->
 <bean id="world" class="java.lang.String" >
 	<constructor-arg value="#{' World!'}" />
@@ -114,13 +114,13 @@ System.out.println(expression.getValue(context)); // Name = dongchuan
 <bean id="hello3" class="java.lang.String" >
 	<constructor-arg value="#{'Hello' + @world}" />
 </bean>
-{% endhighlight %}
+```
 
 ## Annotation-based Expression
 
 The `@Value` annotation can be placed on fields, methods and method/constructor parameters to specify a default value. So we could use SpEL to reference other beans to set default value.
 
-{% highlight java %}
+```java
 public class AnnoExpression {
 
 	@Value("#{'Hello ' + world}")
@@ -130,11 +130,11 @@ public class AnnoExpression {
 	// Setters and Getters
 
 }
-{% endhighlight %}
+```
 
 Configuration file conf-spel.xml:
 
-{% highlight xml %}
+```xml
 <!-- To support annotation -->
 <context:annotation-config/>
 
@@ -149,11 +149,11 @@ Configuration file conf-spel.xml:
 <bean id="helloBean2" class="com.dong.demo.AnnoExpression">
 	<property name="value" value="helloBean2"/>
 </bean>
-{% endhighlight %}
+```
 
 To test:
 
-{% highlight java %}
+```java
 ApplicationContext ctx = new ClassPathXmlApplicationContext("conf-spel.xml");
 
 AnnoExpression helloBean1 = ctx.getBean("helloBean1", AnnoExpression.class);
@@ -161,7 +161,7 @@ AnnoExpression helloBean2 = ctx.getBean("helloBean2", AnnoExpression.class);
 
 System.out.println("helloBean1 : " + helloBean1.getValue()); // helloBean1 : Hello World!
 System.out.println("helloBean2 : " + helloBean2.getValue()); // helloBean2 : helloBean2
-{% endhighlight %}
+```
 
 ## Function or constant in expressions
 
@@ -171,7 +171,7 @@ To invoke static function/constant in expression, we must know its class firstly
 
 **To invoke class function, it's the same as java language.** If we already have an instance in SpEL, for example `#{'HelloWorld'}`, here as a `String` instance ,we could call all the string class function directly like this `#{'HelloWorld'.function()}`
 
-{% highlight xml %}
+```xml
 <bean id="spELClass" class="com.dong.demo.SpELClass">
 	<!-- Invoke class function -->
     <property name="classFunction" value="#{'HelloWorld'.substring(2, 5)}"/>
@@ -180,18 +180,18 @@ To invoke static function/constant in expression, we must know its class firstly
     <!-- Invoke static function -->
     <property name="randomNumber" value="#{T(java.lang.Math).random()}"/>
 </bean>
-{% endhighlight %}
+```
 
 ## Constructor in expressions
 
 We could use `new` key word directly in SpEL, if class is not in `java.lang`, we need to specify the full package name:
 
-{% highlight xml %}
+```xml
 <bean id="spELClass" class="com.dong.demo.SpELConstructor">
     <property name="testA" value="#{new String('HelloWorld').substring(2, 5)}"/>
     <property name="testB" value="#{new com.dong.demo.test('HelloWorld').doSomething()}"/>
 </bean>
-{% endhighlight %}
+```
 
 ## Mathematical operators
 
@@ -199,7 +199,7 @@ We could use `new` key word directly in SpEL, if class is not in `java.lang`, we
 * Subtraction, multiplication and division can be used only on numbers.
 * Other mathematical operators supported are modulus (%) and exponential power (^).
 
-{% highlight xml %}
+```xml
 <bean id="counter" class="com.dong.demo.SpELCounter">
 	<property name="total" value="#{100}"/>
 	<property name="count" value="#{10}"/>
@@ -212,7 +212,7 @@ We could use `new` key word directly in SpEL, if class is not in `java.lang`, we
 	<property name="complementation" value="#{counter.total % counter.count}"/>
 	<property name="involution" value="#{T(java.lang.Math).PI * counter.total ^ 2}"/>
 </bean>
-{% endhighlight %}
+```
 
 ## Relational operators
 
@@ -231,32 +231,32 @@ There are two formats **symbolic** and **textual**. Textual format is suggested 
 * and
 * not (!)
 
-{% highlight java %}
+```java
 String expression = "isMember('Tom') and !isMember('Jean')";
-{% endhighlight %}
+```
 
 ## Elvis Operator
 
 The Elvis operator is a shortening of the ternary operator syntax. It could avoid repeating a variable twice.
 
-{% highlight java %}
+```java
 name != null ? name : "someValue"
-{% endhighlight %}
+```
 
 Same as:
 
-{% highlight java %}
+```java
 name ? : "someValue"
-{% endhighlight %}
+```
 
 ## Safe Navigation operator
 
 Sometimes, we need to verify that an object is not null before accessing methods or properties of the object. The safe navigation operator will simply **return null instead of throwing an exception**.
 
-{% highlight java %}
+```java
 parser.parseExpression("#person?.name").getValue(); // Return null
 parser.parseExpression("#person.name").getValue(); // Throw NullPointerException
-{% endhighlight %}
+```
 
 ## Collection Selection
 
@@ -264,7 +264,7 @@ parser.parseExpression("#person.name").getValue(); // Throw NullPointerException
 
 The following example selects from list `cities` all the cities which has more than 100000 populations:
 
-{% highlight xml %}
+```xml
 <!-- Create a list of beans -->
 <util:list id="cities">
     <bean class="com.dong.demo.SpELCity" p:name="Chicago" p:state="IL" p:population="2853114"/>
@@ -280,7 +280,7 @@ The following example selects from list `cities` all the cities which has more t
 <bean id="spELCityList" class="com.dong.demo.SpELCityList">
 	<property name="bigCities" value="#{cities.?[population gt 100000]}"/>
 </bean>
-{% endhighlight %}
+```
 
 ## Collection Projection
 
@@ -288,19 +288,19 @@ The following example selects from list `cities` all the cities which has more t
 
 The following example creates a new collection. Each of its item is a string combination of `name` and `state` from list `cities`:
 
-{% highlight xml %}
+```xml
 <!-- Same list as above example -->
 
 <bean id="spELCityList" class="com.dong.demo.SpELCityList">
 	<property name="cityNames2" value="#{cities.![name + ', ' + state]}"/>
 </bean>
-{% endhighlight %}
+```
 
 ## Expression templating
 
 Expression templates allow a mixing of literal text with one or more evaluation blocks. Each evaluation block is delimited with `#{ }`.
 
-{% highlight java %}
+```java
 // Persion is a class has two properties name and height
 Person p1 = new Persion("DONG", 180);
 Person p1 = new Persion("Chuan", 190);
@@ -309,7 +309,7 @@ Expression expr = parser.parseExpression('my name is #{name}, my height is #{hei
 
 System.out.println(expr.getValue(p1));
 System.out.println(expr.getValue(p2));
-{% endhighlight %}
+```
 
 ## Ref
 

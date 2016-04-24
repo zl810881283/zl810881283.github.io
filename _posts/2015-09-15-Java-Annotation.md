@@ -25,7 +25,7 @@ A set of annotation types are already predefined in the Java SE API in `java.lan
 
 `@Override` informs the compiler that the marked method is meant to override a method in a superclass. If a method with `@Override` fails to override a method in one of its superclasses, a wrong method name for example, the compiler generates an error. It can only be used for methods.
 
-{% highlight java %}
+```java
 public class Fruit {
     public void eat(){
         System.out.println("Eat fruit");
@@ -46,7 +46,7 @@ class Apple extends Fruit {
         System.out.println("eat apple");
     }
 }
-{% endhighlight %}
+```
 
 When compile class Apple, it will generate an override error because of wrong method name.
 
@@ -56,7 +56,7 @@ It indicates that the marked element is deprecated and should no longer be used.
 
 It also has a certain "inheritance": **If we use in the code an overrided/inherited types or methods from deprecated ones, the compiler still generates a warning**.
 
-{% highlight java %}
+```java
 public class Fruit {
     @Deprecated
     public void eat(){
@@ -70,7 +70,7 @@ class Orange extends Fruit {
         System.out.println("eat orange");
     }
 }
-{% endhighlight %}
+```
 
 So we would get a warning when use eat() in class Orange.
 
@@ -78,7 +78,7 @@ So we would get a warning when use eat() in class Orange.
 
 It tells compiler to suppress specific warnings that it would otherwise generate. In the following example, a deprecated method is used but now `@SuppressWarnings` causes the warning to be suppressed.
 
-{% highlight java %}
+```java
 public class Fruit {
     @Deprecated
     public void eat(){
@@ -93,7 +93,7 @@ class Orange extends Fruit {
         System.out.println("eat orange");
     }
 }
-{% endhighlight %}
+```
 
 This annotation has a String[] parameter. 
 
@@ -137,7 +137,7 @@ The following is some common warnings:
 *  `ElementType.PARAMETER` can be applied to the parameters of a method.
 *  `ElementType.TYPE` can be applied to any element of a class.
 
-{% highlight java %}
+```java
 @Target(ElementType.TYPE)
 public @interface Table {
     //......
@@ -147,7 +147,7 @@ public @interface Table {
 public @interface NoDBColumn {
 	//......
 }
-{% endhighlight %}
+```
 
 So annotation @Table can be used for class/interface/enum. @NoDBColumn can be used for field or property of a class.
 
@@ -159,7 +159,7 @@ So annotation @Table can be used for class/interface/enum. @NoDBColumn can be us
 * `RetentionPolicy.CLASS` – The annotation is retained by the compiler at compile time, but is ignored by the JVM.
 * `RetentionPolicy.RUNTIME` – The annotation is retained by the JVM so it can be used by the runtime environment.
 
-{% highlight java %}
+```java
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Column {
@@ -168,7 +168,7 @@ public @interface Column {
     public String getFuncName() default "getField"; 
     public boolean defaultDBValue() default false;
 }
-{% endhighlight %}
+```
 
 So here, Column annotation is retained by the JVM at runtime, we could get its properties by java reflection to do some more operations!
 
@@ -187,14 +187,14 @@ Only if when we declare retention as `RetentionPolicy.RUNTIME`, we could get the
 
 The format to define an annotation:
 
-{% highlight java %}
+```java
 @Meta-Annotation A
 @Meta-Annotation B
 public @interface annotationName {
     returnType functionA() default defaultValueA;
     returnType functionB() default defaultValueB;
 }
-{% endhighlight %}
+```
 
 When we use `@interface`, it implements automatically `java.lang.annotation.Annotation` interface. Every method in it is actually a configuration parameter. Name of the method is the name of the parameter, returnType is the type of argument(returnType can only be a basic type, Class, String, enum). You can declare the default value of the parameter.
 
@@ -215,7 +215,7 @@ It supports the following types:
 
 Define now `@MethodInfo` to indicate information about a method
 
-{% highlight java %}
+```java
 @Target(ElementType.METHOD)
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
@@ -227,7 +227,7 @@ public @interface MethodInfo{
     String comments();
     
 }
-{% endhighlight %}
+```
 
 So by its meta annotations, we could know that:
 
@@ -237,7 +237,7 @@ So by its meta annotations, we could know that:
 
 Now we use this annotation on a method
 
-{% highlight java %} 
+```java 
 public class AnnotationExample {
  
     @MethodInfo(author = "Dong", comments = "An example", date = "26 12 2015", revision = 3)
@@ -246,11 +246,11 @@ public class AnnotationExample {
     }
     
 }
-{% endhighlight %}
+```
 
 Then we will use the Java reflection to parse `@MethodInfo` in order to know information about the method marked by this annotation.
 
-{% highlight java %} 
+```java 
 public class AnnotationParsing {
  
     public static void main(String[] args) {
@@ -287,14 +287,14 @@ public class AnnotationParsing {
  
 }
 
-{% endhighlight %}
+```
 
 Output：
 
-{% highlight java %} 
+```java 
 Annotation in Method 'public java.lang.String com.dong.annotations.AnnotationExample.todo()' : @com.dong.annotations.MethodInfo(author=Pankaj, revision=1, comments=An example, date=Nov 17 2012)
 Method with revision no 1 = public java.lang.String com.dong.annotations.AnnotationExample.todo()
-{% endhighlight %}
+```
 
 ## Ref
 - [Oracle Java Doc](https://docs.oracle.com/javase/tutorial/java/annotations/)

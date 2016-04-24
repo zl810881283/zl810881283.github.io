@@ -14,7 +14,7 @@ We could define default values on schema.
 1. **Default values** directly.
 2. **Default function** - set the default schema option to a function and use the return value as the default.
 
-{% highlight javascript %}
+```javascript
 var mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost/mongodemo");
@@ -40,7 +40,7 @@ console.log('user: ', user);
 // user:  { nickname: 'dchuan',
 //    regTime: Sat Apr 02 2016 17:14:57 GMT+0200 (Romance Daylight Time),
 //    _id: 56ffe1f11c6628a4037ea514 }
-{% endhighlight %}
+```
 
 ## Getters and Setters
 
@@ -49,7 +49,7 @@ Getters and setters could change attributes defined by the keys and values in th
 * Setter: **transform data before it is stored mongodb**.
 * Getter: **transform the representation of the data when retreive from mongodb**.
 
-{% highlight javascript %}
+```javascript
 var mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost/mongodemo");
@@ -85,11 +85,11 @@ console.log('user: ', user);
 // user:  { _id: 570038ade8cb4c9023875290,
 //    blogurl: 'http://dongchuan.github.io',
 //    nickname: 'dchuan' }
-{% endhighlight %}
+```
 
 Another example about getter:
 
-{% highlight javascript %}
+```javascript
 var UserSchema = new mongoose.Schema({
   blogurl: {
     type: String,
@@ -120,7 +120,7 @@ user.save(function(err){
   // 'get' will be invoked here to add "http://"
   console.log('blog url: ', user.blogurl);
 });
-{% endhighlight %}
+```
 
 ## Validation
 
@@ -144,7 +144,7 @@ We could also **customize a validation**:
 
 * `validate: function(){}` - customized validation. Must return true/false
 
-{% highlight javascript %}
+```javascript
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongodemo');
@@ -185,7 +185,7 @@ order.save(function(err){
 
     console.log('save success');
 });
-{% endhighlight %}
+```
 
 ## Methods
 
@@ -194,7 +194,7 @@ Each Schema can define instance and static methods for its model.
 * Define instance method - SchemaName.**methods**.functionName = function functionName () {};
 * Define static method - SchemaName.**statics**.functionName = function functionName () {};
 
-{% highlight javascript %}
+```javascript
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongodemo');
@@ -238,7 +238,7 @@ book.save(function(err){
     // Invoke instance method
     book.print();
 });
-{% endhighlight %}
+```
 
 ## Middleware
 
@@ -278,7 +278,7 @@ Two types of pre hooks:
 
 > When we put common post hook with asynchronous post hook together. Common post hook will be triggered firstly!
 
-{% highlight javascript %}
+```javascript
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/mongodemo');
@@ -338,13 +338,13 @@ reseller.save();
 // post save middleware B { _id: 5700dcd659caab4c1018795e,
 //   address: '101st, People Read',
 //   __v: 0 }
-{% endhighlight %}
+```
 
 ### Error handling
 
 If any middleware calls next or done with a parameter of type Error, the flow is interrupted, and the error is passed to the callback.
 
-{% highlight javascript %}
+```javascript
 ResellerSchema.pre('save', function(next) {
   // We **must** do `new Error()`. `next('something went wrong')` will **not** work
   var err = new Error('something went wrong');
@@ -354,7 +354,7 @@ ResellerSchema.pre('save', function(next) {
 reseller.save(function(err) {
   console.log(err.message) // something went wrong
 });
-{% endhighlight %}
+```
 
 ## Virtual attributes
 
@@ -362,7 +362,7 @@ Virtual attributes are **attributes that are convenient to have around but that 
 
 > We must set toJSON/toObject to be able to output it!
 
-{% highlight javascript %}
+```javascript
 var mongoose = require('mongoose');
 
 var PersonSchema = new mongoose.Schema({
@@ -388,7 +388,7 @@ var person = new Person({
 console.log('user full name: ', person.fullName);
 
 console.log('JSON:', JSON.stringify(person));
-{% endhighlight %}
+```
 
 ## Ref
 
