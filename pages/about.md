@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About Me
+description: something about me
 cv: enable
 menu: About
 permalink: /about

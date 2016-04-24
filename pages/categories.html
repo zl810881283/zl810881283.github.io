@@ -1,9 +1,9 @@
 ---
-layout: categories
+layout: post
 title: Categories
 keywords: Categories, 分类
 logo: <h2><span class="mega-octicon octicon-clippy"></span>&nbsp;&nbsp;Classify my articles</h2>
-description: Categories
+description: Classify my articles
 menu: Categories
 permalink: /categories
 comments: false
@@ -12,7 +12,7 @@ comments: false
 <section class="container posts-content">
 	{% assign sorted_categories = site.categories | sort %}
 	{% for category in sorted_categories %}
-		<h3 id="{{ category[0] }}">{{ category | first }}</h3>
+		<h2 id="{{ category[0] }}">{{ category | first }}</h2>
 		<ol class="posts-list" >
 		{% for post in category.last %}
 			<li class="posts-list-item">

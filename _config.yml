@@ -42,7 +42,7 @@ highlighter: rouge
 lsi:         false
 excerpt_separator: "\n\n"
 
-exclude: [node_modules]
+exclude: ["node_modules", "bower.json", "Gemfile", "Gemfile.lock", "gulpfile.js", "package.json"]
 source:      .
 destination: ./_site
 
