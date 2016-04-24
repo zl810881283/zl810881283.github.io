@@ -25,6 +25,15 @@ permalink: /about
 - [No.1 team's redmine](http://redmine.jamesblog.com.cn)
 - [Project done by myself - zhazha.pw](http://zhazha.jamesblog.com.cn)
  
+## Current work list
+
+- [ ] Graduation Design
+    - [x] Research Information 
+    - [x] Translate Paper
+    - [ ] Implement System
+    - [ ] Writing Paper
+- [ ] Auction Website Implement
+
 ## Skill Keywords
 
 ### Software Engineer Keywords
