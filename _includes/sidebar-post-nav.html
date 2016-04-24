@@ -50,6 +50,9 @@
                 }
             });
         }
+        $('#post-directory-module a').parent().click(function ($event) {
+            $(this).find('a').click();
+        });
     });
 
 
