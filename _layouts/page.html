@@ -35,12 +35,12 @@ comments: true
             <article class="article-content markdown-body">
                 {{ content }}
             </article>
-            {% if page.share != false %}
+            {% if page.share != "false" %}
             <div class="share">
                 {% include sns-share.html %}
             </div>
             {% endif %}
-            {% if page.comments != false %}
+            {% if page.comments != "false" %}
             <div class="comment">
                 {% include comments.html %}
             </div>
