@@ -13,9 +13,10 @@ permalink: /wiki/
 
 > how many hot key will make brain explode?
 
-{% for wiki in site.wiki %}
-{% if wiki.title != "Wiki Template" %}
-- [{{ wiki.title }}]({{ wiki.url }})
-{% endif %}
-{% endfor %}
-
+<ul>
+    {% for wiki in site.wiki %}
+    {% if wiki.title != "Wiki Template" %}
+    <li><a href="{{ wiki.url }}">{{ wiki.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>

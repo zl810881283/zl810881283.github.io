@@ -14,12 +14,9 @@ permalink: /about
 ## Contact
 
 - Email: [{{site.email}}](mailto://{{site.email}})
-
 - Website: [http://zale.site](http://zale.site)
-
 - GitHub: [@{{site.github_account}}](https://github.com/{{site.github_account}})
-{% for social in site.socials %}
-- {{social.type}}: [@{{social.account}}]({{social.home}})
+{% for social in site.socials %}- {{social.type}}: [@{{social.account}}]({{social.home}})
 {% endfor %}
 
 ## Skill Keywords
