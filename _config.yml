@@ -53,7 +53,7 @@ gems:
   - jemoji
   - rouge
   - jekyll-html-pipeline
-  - jekyll-
+  - jekyll-paginate
 
 # ---------------- #
 #    Analytics     #
