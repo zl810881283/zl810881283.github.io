@@ -6,6 +6,7 @@ tags: [mybatis, java]
 ---
 
 Quick note about MyBatis association, collection and discriminator.
+$$ \sqrt(x) $$
 
 ## association
 
@@ -30,6 +31,23 @@ public class Author {
 	
 	// Getters and Setters
 }
+```
+
+```xml
+<resultMap id="AuthorMap" type="Author">
+	<!-- author.id is tableName.id which is used to be distinguished from user.id -->
+	<id property="id" column="author.id"/>
+	<result property="realName" column="realName" />
+	<result property="IDCard" column="IDCard" />
+	<association property="user" column="userID" javaType="User">
+		<id property="id" column="user.id"/>
+		<result property="userName" column="userName" />
+		<result property="password" column="password" />
+	</association>
+</resultMap>
+<select id="selectAuthorJoin" resultMap="AuthorMap">
+	select * from author inner join user on user.id = author.userID
+</select>
 ```
 {% highlight java %}
 public class User {

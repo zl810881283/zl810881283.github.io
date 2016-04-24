@@ -49,10 +49,6 @@ destination: ./_site
 quiet:    false
 defaults: []
 
-kramdown:
-  input: GFM
-  enable_coderay: true
-
 gems:
   - jemoji
   - rouge
