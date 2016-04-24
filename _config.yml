@@ -53,8 +53,13 @@ gems:
   - jemoji
   - rouge
   - jekyll-html-pipeline
-  - jekyll-paginate
+  - jekyll-
 
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+# support provider: google, baidu
+# !!!Important!!! Please modify tracking_id below to yours
 analytics:
   provider: google
   google:

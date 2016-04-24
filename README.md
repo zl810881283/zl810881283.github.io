@@ -5,7 +5,7 @@ you can fork it for personal use.
 
 ## How to use
 
-- Change site setting to yours, all in `_config.yml`.
+- Change site setting to yours, all in `_config.yml`. *Specially* **analytics** and **comments**
 - Change `pages/about.md` to yours.
 - Delete all my articles
     - `_post` my blog's articles
