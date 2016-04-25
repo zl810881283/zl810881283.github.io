@@ -19,7 +19,7 @@ jQuery(function ($) {
       $("body, html").animate({
         scrollTop: $(location.hash).offset().top - 80
       }, 600);
-    },1000);
+    },500);
 
   }
 });
