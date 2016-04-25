@@ -69,12 +69,12 @@ It is a auction Website. Logic is not difficult. Maybe as follow:
 
 ### Front-end
  
-Single Page Application(SPA) is popular for its good user experience. For my interest, technology first, [Angular 2](https://angular.io) is the first choose.
+Single Page Application(SPA) is popular for its good user experience. As my interest, technology first, [Angular 2](https://angular.io) is the first chosen.
 For Angular 2 is currently in **Beta**, API may change and bugs may happen. I would like share something about Angular 2 next time (maybe next blog)
 
 ### Back-end 
 
-No doubt that NodeJs and ThinkJs was choose. I prefer it for ES7 features. I can use async/await to speed up my development.]
+No doubt that NodeJs and ThinkJs was choose. I prefer it for ES7 features. I can use async/await to speed up my development.
 
 ### Database
 
