@@ -4,7 +4,7 @@ title: Wiki
 subtitle: <h2><span class="mega-octicon octicon-book"></span>&nbsp;&nbsp; Personal wiki </h2>
 keywords: Wiki, 维基
 description: Wiki
-comments: 'false'
+comments: false
 menu: Wiki
 permalink: /wiki/
 ---
