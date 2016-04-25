@@ -1,16 +1,16 @@
 {
-  "name": "DONGChuan.github.io",
-  "description": "DONGChuan blog",
+  "name": "zl810881283.github.io",
+  "description": "Zale's blog",
   "main": "",
   "authors": [
-    "DONGChuan <dongchuan55@gmail.com>"
+    "Zale <810881283@qq.com>"
   ],
   "license": "MIT",
   "keywords": [
-    "DONGchuan",
+    "Zale",
     "blog"
   ],
-  "homepage": "https://github.com/DONGChuan/DONGChuan.github.io",
+  "homepage": "https://github.com/zl810881283/zl810881283.github.io",
   "moduleType": [],
   "ignore": [
     "**/.*",
