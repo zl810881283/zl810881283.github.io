@@ -2,7 +2,7 @@
 layout: post
 title: SpringMVC Http Message Converters
 category: SpringMVC
-tags: [spring, springmvc]
+tags: [Spring, SpringMVC]
 ---
 
 Quick note about spring mvc http message converter. Especially thanks to this [post](http://www.baeldung.com/spring-httpmessageconverter-rest) by Eugen Paraschiv.

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Android Tween Animation
-category: android
-tags: [android]
+category: Android
+tags: [Android]
 ---
 
 ## Tween Animation

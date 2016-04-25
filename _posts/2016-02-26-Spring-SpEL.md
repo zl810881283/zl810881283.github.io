@@ -2,7 +2,7 @@
 layout: post
 title: Spring SpEL
 category: Spring
-tags: [spring]
+tags: [Spring]
 ---
 
 Quick note after learning Spring SpEL. [Code Demo](https://github.com/DONGChuan/SpEL-Demo)

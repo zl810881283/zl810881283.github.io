@@ -11,7 +11,7 @@ keywords: Markdown
 * TOC
 {:toc}
 
-### 超链接
+## 超链接
 
 ```
 [靠谱-ing](http://mazhuang.org)
@@ -23,7 +23,7 @@ keywords: Markdown
 
 <http://mazhuang.org>
 
-### 列表
+## 列表
 
 ```
 1. 有序列表项 1
@@ -56,7 +56,7 @@ keywords: Markdown
 - [x] 任务列表 1
 - [ ] 任务列表 2
 
-### 强调
+## 强调
 
 ```
 ~~删除线~~
@@ -72,20 +72,20 @@ keywords: Markdown
 
 *斜体*
 
-### 标题
+## 标题
 
 ```
 # 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
+# 二级标题
+## 三级标题
+### 四级标题
+#### 五级标题
+##### 六级标题
 ```
 
 Tips: `#` 与标题中间要加空格。
 
-### 表格
+## 表格
 
 ```
 | HEADER1 | HEADER2 | HEADER3 | HEADER4 |
@@ -101,7 +101,7 @@ Tips: `#` 与标题中间要加空格。
 2. :----: 表示中对齐
 3. -----: 表示右对齐
 
-### 代码块
+## 代码块
 
 ```python
 print 'Hello, World!'
@@ -115,7 +115,7 @@ print 'Hello, World!'
    print 'hello'
    ```
 
-### 图片
+## 图片
 
 ```
 ![本站favicon](/favicon.ico)
@@ -123,7 +123,7 @@ print 'Hello, World!'
 
 ![本站favicon](/favicon.ico)
 
-### 锚点
+## 锚点
 
 ```
 * [目录](#目录)
@@ -131,13 +131,13 @@ print 'Hello, World!'
 
 * [目录](#目录)
 
-### Emoji
+## Emoji
 
 :camel:
 :blush:
 :smile:
 
-### Footnotes
+## Footnotes
 
 This is a text with footnote[^1].
 

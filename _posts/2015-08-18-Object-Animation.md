@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Android Object Animator
-category: android
-tags: [android]
+category: Android
+tags: [Android]
 ---
 
 ## Object Animator

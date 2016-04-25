@@ -6,7 +6,7 @@ description: Source Insight 工具的快捷键及使用日常。
 keywords: Source Insight
 ---
 
-### 快捷键
+## 快捷键
 
 C --> Ctrl
 
@@ -25,7 +25,7 @@ M --> Alt
 | 向上搜索     | F3     |
 | 高亮当前单词 | S-F8   |
 
-### Q&A
+## Q&A
 
 1. 新建工程后函数跳转等遇到 `symbol not found` 如何解决？
 

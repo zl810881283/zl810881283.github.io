@@ -6,7 +6,7 @@ description: 静态分析神器
 keywords: debug, IDA Pro
 ---
 
-### 快捷键
+## 快捷键
 
 C --> Ctrl
 

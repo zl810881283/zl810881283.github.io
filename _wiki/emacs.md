@@ -13,7 +13,7 @@ keywords: Emacs, 快捷键
 * TOC
 {:toc}
 
-### 移动
+## 移动
 
 上 C-p
 
@@ -51,7 +51,7 @@ keywords: Emacs, 快捷键
 
 当前光标行移动到屏显上/中/下部 C-l
 
-### 编辑
+## 编辑
 
 选取块 C-@
 
@@ -79,7 +79,7 @@ keywords: Emacs, 快捷键
 
 当前单词全小写 M-l
 
-### 缓冲区
+## 缓冲区
 
 查看所有打开的缓冲区 C-x C-b
 
@@ -89,7 +89,7 @@ keywords: Emacs, 快捷键
 
 关闭 emacsclientw.exe 打开的缓冲区 C-x #
 
-### 窗口
+## 窗口
 
 关闭其它窗口 C-x 1
 
@@ -101,7 +101,7 @@ keywords: Emacs, 快捷键
 
 依次切换到其它窗口 C-x o
 
-### 文件
+## 文件
 
 打开文件 C-x C-f
 
@@ -111,7 +111,7 @@ keywords: Emacs, 快捷键
 
 在当前位置插入某文件内容 C-x i
 
-### 代码
+## 代码
 
 注释选中块 C-x r t
 
@@ -127,7 +127,7 @@ keywords: Emacs, 快捷键
 
 解释运行当前 elisp 语句/函数 C-M-x
 
-### 命令
+## 命令
 
 输入命令 M-x
 
@@ -149,19 +149,19 @@ elisp 交互解释器 ielm
 
 对选中区域执行命令 M-\|
 
-### 重复
+## 重复
 
 重复操作 50 次 M-50 命令
 
-### 外部命令
+## 外部命令
 
 输入外部命令 M-!
 
-### 模式
+## 模式
 
 打开/关闭某个模式 M-x 模式名
 
-### 显示
+## 显示
 
 放大字体 C-x C-=
 
@@ -171,7 +171,7 @@ elisp 交互解释器 ielm
 
 自定义颜色 M-x customize-face <RETURN> default <RETURN>
 
-### 搜索
+## 搜索
 
 渐进的搜索 C-s
 
@@ -181,7 +181,7 @@ elisp 交互解释器 ielm
 
 按了回车之后往回搜索 C-r C-r
 
-### 帮助
+## 帮助
 
 查看变量的文档 C-h v
 
@@ -193,7 +193,7 @@ elisp 交互解释器 ielm
 
 打开帮助文档 C-h i
 
-### 右键菜单
+## 右键菜单
 
 将如下代码命令为 .reg 文件，运行后可为鼠标右键添加菜单项「Edit with Emacs」（运行之前将 exe 路径先替换为自己的）。
 
@@ -208,15 +208,15 @@ Windows Registry Editor Version 5.00
 @="\"D:\\emacs\\bin\\emacsclientw.exe\" -a \"D:\\emacs\\bin\\runemacs.exe\" \"%1\""
 ```
 
-### 插件
+## 插件
 
-#### evil-nerd-commenter
+### evil-nerd-commenter
 
 注释/反注释 M-;
 
 注释多行 M-9 M-;
 
-#### function-args
+### function-args
 
 提示函数参数 M-i
 
@@ -224,7 +224,7 @@ Windows Registry Editor Version 5.00
 
 跳转到函数定义（显示函数参数的时候有效） M-j
 
-#### hexl-mode
+### hexl-mode
 
 进入十六进制模式 M-x hexl-mode
 
@@ -232,25 +232,25 @@ Windows Registry Editor Version 5.00
 
 输入十六进制数 M-x hexl-insert-hex-char
 
-#### ido
+### ido
 
 切换到上一个选项 C-r
 
 切换到下一个选项 C-s
 
-#### jedi
+### jedi
 
 显示光标处 Python 模块或函数的文档 C-c ?
 
-#### projectile
+### projectile
 
 显示/刷新当前项目文件列表 C-c p f
 
-#### python
+### python
 
 打开 Python 交互式Shell C-c C-p
 
-#### package
+### package
 
 升级已安装的包 U
 
@@ -273,9 +273,9 @@ Windows Registry Editor Version 5.00
 退出窗口 q
 
 
-### 其它需求
+## 其它需求
 
-#### 统计字数
+### 统计字数
 
 （前提是 shell 下能运行 wc 程序）
 

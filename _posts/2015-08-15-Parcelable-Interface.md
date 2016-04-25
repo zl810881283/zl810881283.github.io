@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Android Parcelable Interface
-category: android
-tags: [android]
+category: Android
+tags: [Android]
 ---
 
 ## Parcelable Interface

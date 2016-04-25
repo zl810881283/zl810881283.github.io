@@ -1,8 +1,8 @@
 ---
 layout: post
-title: AngularJS Form
-category: AngularJS
-tags: [angularjs]
+title: AngularJS 1 Form
+category: Angular 1
+tags: [Angular 1]
 ---
 
 AngularJS provides a small and well-defined set of constructs that make standard form-based operations easier. For a form, we should consider three points:

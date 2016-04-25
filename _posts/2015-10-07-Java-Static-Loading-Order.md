@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Java Static Blocks Loading Order
-category: java
-tags: [java]
+category: Java
+tags: [Java]
 ---
 
 ## Java Static Blocks Loading Order

@@ -1,0 +1,26 @@
+---
+layout: post
+title: Tags
+keywords: Tag, 标签
+logo: <h2><span class="mega-octicon octicon-tag"></span>&nbsp;&nbsp;Group Articles by Tag</h2>
+description: Group Articles by Tags
+menu: Tags
+permalink: /tags
+comments: false
+---
+
+<section class="container posts-content">
+	{% assign sorted_tags = site.tags | sort %}
+	{% for tag in sorted_tags %}
+		<h2 id="{{ tag | first | slugify}}">{{ tag | first }}</h2>
+		<ol class="posts-list" >
+		{% for post in tag.last %}
+			<li class="posts-list-item">
+				<span class="posts-list-meta">{{ post.date | date:"%Y-%m-%d" }}</span>
+				<a class="posts-list-name" href="{{ post.url }}">{{ post.title }}</a>
+			</li>
+		{% endfor %}
+		</ol>
+	{% endfor %}
+</section>
+<!-- /section.content -->

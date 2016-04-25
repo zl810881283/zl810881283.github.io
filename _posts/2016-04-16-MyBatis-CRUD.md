@@ -2,7 +2,7 @@
 layout: post
 title: MyBatis config and CRUD
 category: MyBatis
-tags: [mybatis]
+tags: [Mybatis]
 ---
 
 Quick note about MyBatis configuration and CRUD.

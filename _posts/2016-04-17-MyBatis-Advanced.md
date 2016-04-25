@@ -2,7 +2,7 @@
 layout: post
 title: MyBatis association collection and discriminator
 category: MyBatis
-tags: [mybatis, java]
+tags: [Mybatis, Java]
 ---
 
 Quick note about MyBatis association, collection and discriminator.

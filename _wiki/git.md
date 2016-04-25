@@ -6,7 +6,7 @@ description: Git 常用操作记录。
 keywords: Git, 版本控制
 ---
 
-### 快捷键
+## 快捷键
 
 | 功能                      | 命令                      |
 |:--------------------------|:--------------------------|
@@ -28,9 +28,9 @@ keywords: Git, 版本控制
 | 推送 tags 到远程仓库      | git push --tags           |
 | 推送单个 tag 到远程仓库   | git push origin [tagname] |
 
-### Q&A
+# Q&A
 
-#### 如何解决gitk中文乱码，git ls-files 中文文件名乱码问题？
+### 如何解决gitk中文乱码，git ls-files 中文文件名乱码问题？
 
 在~/.gitconfig中添加如下内容
 
@@ -47,7 +47,7 @@ keywords: Git, 版本控制
 
 参考 <http://zengrong.net/post/1249.htm>
 
-#### 如何处理本地有更改需要从服务器合入新代码的情况？
+### 如何处理本地有更改需要从服务器合入新代码的情况？
 
 ```
 git stash
@@ -55,7 +55,7 @@ git pull
 git stash pop
 ```
 
-#### 如何合并 fork 的仓库的上游更新？
+### 如何合并 fork 的仓库的上游更新？
 
 ```
 git remote add upstream https://upstream-repo-url
@@ -63,18 +63,18 @@ git fetch upstream
 git merge upstream/master
 ```
 
-#### 如何通过 TortoiseSVN 带的 TortoiseMerge.exe 处理 git 产生的 conflict？
+### 如何通过 TortoiseSVN 带的 TortoiseMerge.exe 处理 git 产生的 conflict？
 * 将 TortoiseMerge.exe 所在路径添加到 `path` 环境变量。
 * 运行命令 `git config --global merge.tool tortoisemerge` 将 TortoiseMerge.exe 设置为默认的 merge tool。
 * 在产生 conflict 的目录运行 `git mergetool`，TortoiseMerge.exe 会跳出来供你 resolve conflict。
 
   > 也可以运行 `git mergetool -t vimdiff` 使用 `-t` 参数临时指定一个想要使用的 merge tool。
 
-#### 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
+### 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
 
 `git rm --cached /path/to/file`，然后正常 add 和 commit 即可。
 
-#### 如何不建立一个没有 parent 的 branch？
+### 如何不建立一个没有 parent 的 branch？
 
 ```
 git checkout --orphan newbranch
@@ -90,7 +90,7 @@ git add .
 git commit -m "init commit"
 ```
 
-#### submodule 的常用命令
+### submodule 的常用命令
 
 **添加 submodule**
 
@@ -132,14 +132,14 @@ git rm --cached Catch
 git submodule update --init --recursive
 ```
 
-#### 删除远程 tag
+### 删除远程 tag
 
 ```
 git tag -d v0.0.9
 git push origin :refs/tags/v0.0.9
 ```
 
-#### 清除未跟踪文件
+### 清除未跟踪文件
 
 ```
 git clean

@@ -2,7 +2,7 @@
 layout: post
 title: Struts OGNL
 category: Struts
-tags: [struts]
+tags: [Struts]
 ---
 
 OGNL stands for [Object Graph Navigation Language](http://commons.apache.org/proper/commons-ognl/).

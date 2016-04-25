@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Build Path and Class Path
-category: java
-tags: [java]
+category: Java
+tags: [Java]
 ---
 
 ## Build Path and Class Path

@@ -2,7 +2,7 @@
 layout: post
 title: Spring Beans Autowire
 category: Spring
-tags: [spring]
+tags: [Spring]
 ---
 
 This is quick note after learning Spring autowire.

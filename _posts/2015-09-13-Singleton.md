@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Singleton Pattern
-category: design pattern
-tags: [java, design pattern]
+category: Design Pattern
+tags: [Java, Design Pattern]
 ---
 
 ## Singleton

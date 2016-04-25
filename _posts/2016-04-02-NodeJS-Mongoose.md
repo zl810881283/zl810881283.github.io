@@ -2,7 +2,7 @@
 layout: post
 title: NodeJS Mongoose
 category: NodeJS
-tags: [nodejs]
+tags: [NodeJs]
 ---
 
 Quick note about Mongoose. [Code demo](https://github.com/DONGChuan/MongooseDemo)
