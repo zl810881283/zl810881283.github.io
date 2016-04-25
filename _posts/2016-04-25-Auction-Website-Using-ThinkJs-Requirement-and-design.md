@@ -2,8 +2,7 @@
 layout: post
 title: Auction Website Using ThinkJs - Requirement and Design
 category: NodeJs
-tags:[NodeJs, ThinkJs, ES7]
-description: some word here
+tags: [NodeJs, ThinkJs, ES7]
 keywords: NodeJs, ThinkJs, ES7
 ---
 
