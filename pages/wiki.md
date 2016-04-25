@@ -6,7 +6,7 @@ keywords: Wiki, 维基
 description: Wiki
 comments: false
 menu: Wiki
-permalink: /wiki/
+permalink: /wiki
 ---
 
 # Wiki
