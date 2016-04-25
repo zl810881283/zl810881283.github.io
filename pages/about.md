@@ -21,11 +21,11 @@ permalink: /about
 
 ## Relative Links
 
-- [Published PPT](http://ppt.jamesblog.com.cn)
-- [No.1 team's redmine](http://redmine.jamesblog.com.cn)
-- [Project done by myself - zhazha.pw](http://zhazha.jamesblog.com.cn)
+- Published PPT: [http://ppt.jamesblog.com.cn](http://ppt.jamesblog.com.cn)
+- No.1 team's redmine: [http://redmine.jamesblog.com.cn](http://redmine.jamesblog.com.cn)
+- Project done by myself - zhazha.pw: [http://zhazha.jamesblog.com.cn](http://zhazha.jamesblog.com.cn)
  
-## Current work list
+## Current Work List
 
 - [ ] Graduation Design
     - [x] Research Information 
