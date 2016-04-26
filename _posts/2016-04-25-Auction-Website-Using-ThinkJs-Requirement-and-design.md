@@ -6,9 +6,8 @@ tags: [NodeJs, ThinkJs, ES7]
 keywords: NodeJs, ThinkJs, ES7
 ---
 
-[ThinkJs](https://thinkjs.org/), A Web framework beyond your dreams. It allows you use the full ES6/7 features to develop Node.js applications.
-I use this Web framework to build a project. In this project, one of the most popular technology MTAN was used.
-It is Mongodb, ThinkJs, Angular, NodeJs. As you see, Express was replaced by ThinkJs.
+[ThinkJs](https://thinkjs.org/), A Web framework beyond your dreams. It allows using the full ES6/7 features to develop Node.js applications.
+I developed an auction system with it, in which one of the most popular technology MTAN was used. MTAN is short for Mongodb, ThinkJs, Angular, NodeJs. As you see, Express was replaced by ThinkJs.
 
 ## Why ThinkJs
 
@@ -24,7 +23,7 @@ ThinkJs' features are listed following:
     
 - Hook & Middleware
     
-    Rich hooks and middlewares are provided for conduct the user requests.
+    Rich hooks and middlewares are provided for conducting the user requests.
     
 - Hot Module Replacement(HMR)
     
@@ -59,7 +58,7 @@ It is a auction Website. Logic is not complex. Including:
     
     It may be the mostly difficult part. For Mongodb don't support transaction, two users can bid same price in the condition that submit same time, which is terrible.
     To solve it, I design keeping it serializable by using queue. But deploying on multicore CPU system would also lead to this problem, for NodeJs use signal thread model.
-    TODO: deploying on solve multicore CPU
+    TODO: solve deploying on multicore CPU
     
 - Order Management
     
