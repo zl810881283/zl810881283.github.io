@@ -21,9 +21,9 @@ permalink: /about
 
 ## Relative Links
 
-- Published PPT: [http://ppt.jamesblog.com.cn](http://ppt.jamesblog.com.cn)
-- No.1 team's redmine: [http://redmine.jamesblog.com.cn](http://redmine.jamesblog.com.cn)
-- Project done by myself - zhazha.pw: [http://zhazha.jamesblog.com.cn](http://zhazha.jamesblog.com.cn)
+- Published PPT: [http://ppt.zale.site](http://ppt.zale.site)
+- No.1 team's redmine: [http://redmine.zale.site](http://redmine.zale.site)
+- Project done by myself - zhazha.pw: [http://zhazha.zale.site](http://zhazha.zale.site)
  
 ## Current Work List
 
