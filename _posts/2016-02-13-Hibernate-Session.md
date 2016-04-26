@@ -58,7 +58,7 @@ public class HibernateUtils {
 	}
 	
 	public static void closeSession(Session session){
-		if(session!=null&&session.isOpen()){
+		if(session!=null && session.isOpen()){
 			session.close();
 		}
 	}
@@ -93,8 +93,8 @@ Transaction tx = session.beginTransaction();
 
 User user = new User(); 
 
-user.setName("DONGChuan"); 
-user.setAge(26);
+user.setName("Zale"); 
+user.setAge(20);
 
 session.save(user);
 
