@@ -7,7 +7,7 @@ keywords: NodeJs, ThinkJs, ES7
 ---
 
 [ThinkJs](https://thinkjs.org/), A Web framework beyond your dreams. It allows you use the full ES6/7 features to develop Node.js applications.
-I use this Web framework to build a project. In this project, One of the most popular technology MTAN was used.
+I use this Web framework to build a project. In this project, one of the most popular technology MTAN was used.
 It is Mongodb, ThinkJs, Angular, NodeJs. As you see, Express was replaced by ThinkJs.
 
 ## Why ThinkJs
@@ -40,11 +40,11 @@ ThinkJs' features are listed following:
      
 ## Project Analysis
 
-It is a auction Website. Logic is not difficult. Including:
+It is a auction Website. Logic is not complex. Including:
 
 - User Management
 
-    User sign up, log in, authority manage, information manage, level system
+    User sign up, login, authority manage, information manage, level system
     
     But it is easy to do, because only two role need. One is administrator, the other is common user.
     Common can only bid item and compete with other. 
@@ -69,7 +69,7 @@ It is a auction Website. Logic is not difficult. Including:
 
 ### Front-end
  
-Single Page Application(SPA) is popular for its good user experience. As my interest, technology first, [Angular 2](https://angular.io) is the first chosen.
+Single Page Application(SPA) is popular for its good user experience. Out of my interest, technology first, [Angular 2](https://angular.io) is the first chosen.
 For Angular 2 is currently in **Beta**, API may change and bugs may happen. I would like share something about Angular 2 next time (maybe next blog)
 
 ### Back-end 
