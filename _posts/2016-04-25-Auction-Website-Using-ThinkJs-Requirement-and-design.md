@@ -23,7 +23,7 @@ ThinkJs' features are listed following:
     
 - Hook & Middleware
     
-    Rich hooks and middlewares are provided for conduct the user requests.
+    Rich hooks and middlewares are provided for conducting the user requests.
     
 - Hot Module Replacement(HMR)
     
