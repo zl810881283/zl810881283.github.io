@@ -100,7 +100,7 @@ session.save(user);
 
 tx.commit();
 // Because getCurrentSession(), so no need session.close();
-``` 
+```
 
 But be careful here, `save()` does not guarantee the same, it returns an identifier, and if an INSERT has to be executed to get the identifier, **this INSERT happens immediately**, no matter if you are inside or outside of a transaction. This is not good in a long-running conversation with an extended Session/persistence context.
 
@@ -121,7 +121,7 @@ User user = (User) session.load(User.class, 1); // 1 is the identifier in the da
 
 tx.commit();
 // Because we use getCurrentSession, so no need to run session.close();
-``` 
+```
 
 ### Different between load() and get()
 
@@ -147,7 +147,7 @@ user.setAge(30);
 session.flush();
 // or tx.commit(); it does the same thing
 // Because getCurrentSession(), so no need session.close();
-``` 
+```
 
 ### update() 
 
@@ -177,7 +177,7 @@ secondSession.update(user);
 // Commit!
 tx.commit();
 // Because getCurrentSession(), so no need secondSession.close();
-``` 
+```
 
 ### saveOrUpdate()
 
@@ -210,7 +210,7 @@ session.update(user1); // It throws NonUniqueObjectException because in the sess
 
 tx.commit();
 // Because we use getCurrentSession, so no need session.close();
-``` 
+```
 
 So if in this situation, we should use `merge()`, it needs to merge user1 with user2:
 
@@ -219,7 +219,7 @@ User user2 = (User) session.get(User.class, 2);
 User user3 = (User) session.merge(user1);
 
 // user3 == user2 true
-``` 
+```
 
 So here merge returns the **same reference** of user2.
 
@@ -236,11 +236,11 @@ session.delete(user);
 
 tx.commit();
 // Because getCurrentSession(), so no need session.close();
-``` 
+```
 
 ## find()
 
-No `ind()` in current version! We must use query or criteria to achieve it.
+No `find()` in current version! We must use query or criteria to achieve it.
 
 ## flush()
 
@@ -262,7 +262,7 @@ session.setFlushMode(FlushMode.AUTO);
 session.setFlushMode(FlushMode.COMMIT);
 // The Session is only ever flushed when Session.flush() is explicitly called by the application.
 session.setFlushMode(FlushMode.MANUAL);
-``` 
+```
 
 Be careful, **setFlushMode() must be invoked before session.beginTransaction()**.
 
