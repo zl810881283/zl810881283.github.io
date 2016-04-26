@@ -6,13 +6,13 @@ tags: [NodeJs, ThinkJs, ES7]
 keywords: NodeJs, ThinkJs, ES7
 ---
 
-[ThinkJs](https://thinkjs.org/), A Web framework beyond your dreams. It allows you Use the full ES6/7 features to develop Node.js applications.
-I use this Web framework to build a project. In this project, The most popular technology(maybe) MTAN was used.
+[ThinkJs](https://thinkjs.org/), A Web framework beyond your dreams. It allows you use the full ES6/7 features to develop Node.js applications.
+I use this Web framework to build a project. In this project, One of the most popular technology(maybe) MTAN was used.
 It is Mongodb, ThinkJs, Angular, NodeJs. As you see, Express was replaced by ThinkJs.
 
 ## Why ThinkJs
 
-ThinkJs' features are listed follow: 
+ThinkJs' features are listed following: 
 
 - Supports ES6/7 features
 
@@ -40,7 +40,7 @@ ThinkJs' features are listed follow:
      
 ## Project Analysis
 
-It is a auction Website. Logic is not difficult. Maybe as follow:
+It is a auction Website. Logic is not difficult. Including:
 
 - User Management
 
