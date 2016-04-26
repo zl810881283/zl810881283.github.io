@@ -7,7 +7,7 @@ keywords: NodeJs, ThinkJs, ES7
 ---
 
 [ThinkJs](https://thinkjs.org/), A Web framework beyond your dreams. It allows you use the full ES6/7 features to develop Node.js applications.
-I use this Web framework to build a project. In this project, One of the most popular technology(maybe) MTAN was used.
+I use this Web framework to build a project. In this project, One of the most popular technology MTAN was used.
 It is Mongodb, ThinkJs, Angular, NodeJs. As you see, Express was replaced by ThinkJs.
 
 ## Why ThinkJs
