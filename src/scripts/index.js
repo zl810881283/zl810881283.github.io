@@ -27,11 +27,11 @@ jQuery(function ($) {
       $title.html(titles[counter]);
       setInterval(function () {
         counter = (counter + 1) % titles.length;
-        $title.fadeOut(1000, function () {
+        $title.fadeOut(1500, function () {
           $title.html(titles[counter]);
         });
-        $title.fadeIn(1000);
-      }, 2000);
+        $title.fadeIn(1500);
+      }, 3000);
     }
   }
 });
