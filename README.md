@@ -1,7 +1,8 @@
 # Zale's personal blog 
-this repo is Zale's personal blog on [github pages](https://pages.github.com/)
 
-you can fork it for personal use.
+This repo is Zale's personal blog on [GitHub Pages](https://pages.github.com/)
+
+You can fork it for personal use.
 
 ## How to use
 
@@ -15,6 +16,6 @@ you can fork it for personal use.
 
 ## Thanks
 
-this repo base on [DONGChuan.github.io](https://github.com/DONGChuan/dongchuan.github.io/), thanks very much
+This repo base on [DONGChuan.github.io](https://github.com/DONGChuan/dongchuan.github.io/), thanks very much
 
-powered by [github pages](https://pages.github.com/) and [cloudflare](https://www.cloudflare.com/)
+Powered by [GitHub Pages](https://pages.github.com/) and [CloudFlare](https://www.cloudflare.com/)
