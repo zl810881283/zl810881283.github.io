@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hibernate Session
+title: Hibernate Session (双语)
 category: Hibernate
 tags: [Hibernate]
 ---
