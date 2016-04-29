@@ -35,11 +35,11 @@ permalink: /bookmark
 - [Moment.js](http://momentjs.com/) - Parse, validate, manipulate, and display dates in JavaScript.
 - [Underscore.js](http://underscorejs.org/) - It provides a whole mess of useful functional programming helpers without extending any built-in objects.
 
-### AngularJs
+### Angular 1
 - [Protractor](http://angular.github.io/protractor) - End-to-end test framework for AngularJS applications
 - [angular-media-player](https://github.com/colthreepv/angular-media-player) - Directive for audio and video
 - [Smart table](http://lorenzofox3.github.io/smart-table-website/) - Module to easily display data in a table
-- [ng-table](http://esvit.github.io/ng-table/#/) - Module to easily display data in a table
+- [ng-table](http://esvit.github.io/ng-table/) - Module to easily display data in a table
 - [ngToast](https://github.com/tameraydin/ngToast) - AngularJS toast
 
 ### Node.js

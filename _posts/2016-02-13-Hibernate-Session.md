@@ -7,11 +7,11 @@ tags: [Hibernate]
 
 Session interface is a **single threaded** object between Java application and the persistence layer. Session opens a single database connection when it is created, and holds onto it until the session is closed. It is mainly to **offer CRUD operations on the persistent object** which is loaded by Hibernate from the database.
 
-Session就是一个在Java应用层和持久化层的**单线程的**对象。Session在创建的时候就会打开一个数据库连接，并一直持有这个连接，直到Session被关闭。它主要用来为持久化对象上提供CRUD操作，而这些对象是由Hibernate从数据库中加载的。
+Session 就是一个在 Java 应用层和持久化层的**单线程的**对象。Session 在创建的时候就会打开一个数据库连接，并一直持有这个连接，直到Session被关闭。它主要用来为持久化对象上提供 CRUD 操作，而这些对象是由 Hibernate 从数据库中加载的。
 
 More details, in Hibernate, Session interface wraps a JDBC connection, holds a mandatory (first-level) cache of persistent objects, allows Hibernate to automatically persist objects that are modified, and allows Hibernate to implement functionality such as lazy-loading.
 
-详细点说，在Hibernate中，Session其实是包装了JDBC连接，它持有持久化对象的强制缓存（一级缓存），这样就允许Hibernate在对象被修改的时候自动的持久化对象，并让Hibernate可以实现一些如懒加载之类的功能。
+详细点说，在 Hibernate 中，Session 其实是包装了 JDBC 连接，它持有持久化对象的强制缓存（一级缓存），这样就允许 Hibernate在对象被修改的时候自动的持久化对象，并让Hibernate 可以实现一些如懒加载之类的功能。
 
 ## State of persistent object
 
@@ -21,25 +21,25 @@ Persistent objects should be in one of the following three states at a given poi
 
 - **transient**: A new instance of a persistent class which is not associated with a Session and has no representation in the database and no identifier value. (ex. `Person p = new Person`). You can make a transient instance persistent by associating it with a Session.
 
-    **瞬时态**：一个新的持久化类的实例对象，这个对象没有与任何的Session关联，没有表示数据库中的任何数据，没有唯一标识符（id）（如`Person p = new Person`）。你可以让一个瞬时态对象与一个Session关联，让其成为持久态。
+    **瞬时态**：一个新的持久化类的实例对象，这个对象没有与任何的 Session 关联，没有表示数据库中的任何数据，没有唯一标识符（id）（如 `Person p = new Person`）。你可以让一个瞬时态对象与一个 Session 关联，让其成为持久态。
     
 - **persistent**: A persistent instance has a representation in the database, an identifier value and is associated with a Session.
 
-    **持久态**：一个持久化对象在数据库中有相应的表示，有唯一标识符（id），和一个Session关联。
+    **持久态**：一个持久化对象在数据库中有相应的表示，有唯一标识符（id），和一个 Session 关联。
     
 - **detached**: Once we close the Hibernate Session, the persistent instance will become a detached instance. But the reference of the object is still valid. You could continue to modify the object. These changes will not lost and will be inserted into database when associated with a Session which changes it back to persistent state.
     
-    **游离态**：一旦我们关闭Hibernate Session，持久化对象将会变为游离态。但是对象的引用还是有效的，你可以继续修改对象。这些修改并不会丢失，当游离态对象与一个Session关联后将会变为持久态，而这些修改将会被插入数据库中。
+    **游离态**：一旦我们关闭 Hibernate Session，持久化对象将会变为游离态。但是对象的引用还是有效的，你可以继续修改对象。这些修改并不会丢失，当游离态对象与一个 Session 关联后将会变为持久态，而这些修改将会被插入数据库中。
 
 ## Open a Session
 
 > Different version of Hibernate has different way to do it. The following is for Hibernate more than 3.x only.
 
-> 不同版本的Hibernate有不同的方法，以下的方法只适用于Hibernate 3.x以上版本。
+> 不同版本的 Hibernate 有不同的方法，以下的方法只适用于 Hibernate 3.x 以上版本。
 
 To open a Session, it's better to create an util class:
 
-最好创建一个工具类来打开一个Session：
+最好创建一个工具类来打开一个 Session：
 
 ```java
 public class HibernateUtils {
@@ -70,15 +70,15 @@ To use `getCurrentSession()`, it needs to add in `hibernate.cfg.xml`:
 
 1. We can use it when we decided to manage the Session our self.
 	
-	我们打算自己管理Session的时候，可以使用它。
+	我们打算自己管理 Session 的时候，可以使用它。
 
 2. It does not try to store or pull the Session from the current context. Just a brand new one.
 
-	它不会尝试存储或者从当前上下文中获取Session。仅仅创建一个新的Session。
+	它不会尝试存储或者从当前上下文中获取 Session。仅仅创建一个新的 Session。
 
 3. **If we use this method, we need to `flush()` and `close()` the Session. It does not flush and close automatically**.
 
-	**如果我们使用这个方法，我们需要使用`flush()`和`close()`来管理Session。Hibernate并不会为我们自动的刷新或者关闭Session。**
+	**如果我们使用这个方法，我们需要使用 `flush()` 和 `close()` 来管理 Session。Hibernate 并不会为我们自动的刷新或者关闭 Session。**
 
 #### getCurrentSession()
 
