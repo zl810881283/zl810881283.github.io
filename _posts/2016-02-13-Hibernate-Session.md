@@ -84,13 +84,13 @@ To use `getCurrentSession()`, it needs to add in `hibernate.cfg.xml`:
 
 The "CurrentSession" refers to a Hibernate Session bound by Hibernate behind the scenes, to the transaction scope. It **creates a brand new session** if does not exist or **uses an existing one** if one already exists. It automatically configured with both auto-flush and auto-close attributes as true means **Session will be automatically flushed and closed**. It's better to use `getCurrentSession()` method when our transaction runs long time or with multi calls of Session.
 
-"CurrentSession"是Hibernate后台根据场景自动绑定到事务域的Session。如果当前没有可用Session，**将会自动创建**。如果有的话，**将会使用现有的**。他可以做到真正意义上的`Session自动刷新和关闭`。当我们的事务需要执行很长时间的时候或者需要调用很多次Session的时候，最好使用`getCurrentSession()`。
+"CurrentSession" 是 Hibernate 后台根据场景自动绑定到事务域的 Session。如果当前没有可用 Session，**将会自动创建**。如果有的话，**将会使用现有的**。他可以做到真正意义上的** Session 自动刷新和关闭**。当我们的事务需要执行很长时间的时候或者需要调用很多次 Session 的时候，最好使用 `getCurrentSession()`。
 
 ## save()
 
 `save()` results in an SQL `INSERT`. It persists the given transient instance, first assigning a generated identifier. In brief, it adds/saves a new entity into database.
 
-`save()`会导致一个SQL`INSERT`语句的执行。它会持久化一个瞬时态对象。它会生成一个唯一标识符（id）。总的来说，它会向数据库中增加/存储一个新实体。
+`save()` 会导致一个 SQL `INSERT` 语句的执行。它会持久化一个瞬时态对象。它会生成一个唯一标识符（id）。总的来说，它会向数据库中增加/存储一个新实体。
 
 ```java
 Session session = HibernateUtils.getSession();
@@ -109,19 +109,19 @@ tx.commit();
 
 But be careful here, `save()` does not guarantee the same, it returns an identifier, and if an `INSERT` has to be executed to get the identifier, **this `INSERT` happens immediately**, no matter if you are inside or outside of a transaction. This is not good in a long-running conversation with an extended Session/persistence context.
 
-但是这里需要小心，`save()`并不保证事务，它将返回持久化后的对象的统一标识符（id），如果一个`INSERT` 语句需要被执行来获得统一标识符（id），不管是否在事务内，**这个`INSERT`将会立即执行**。当我们需要继承Session/persistence context来实现长会话流程的时候，这样是不好的。
+但是这里需要小心，`save()`并不保证事务，它将返回持久化后的对象的统一标识符（id），如果一个`INSERT` 语句需要被执行来获得统一标识符（id），不管是否在事务内，**这个`INSERT`将会立即执行**。当我们需要继承 Session/persistence context 来实现长会话流程的时候，这样是不好的。
 
 ## persist()
 
 `persist()` also makes a transient instance persistent. However, it doesn't guarantee that the identifier value will be assigned to the persistent instance immediately, the assignment might happen at flush time. It also guarantees that it will not execute an `INSERT` statement if it is called outside of transaction boundaries. This is useful in long-running conversations with an extended Session/persistence context.
 
-`persist()`同样可以让你一个瞬时态的对象变为持久态。但是它并不保证统一标识符（id）的值会立即赋值给持久化对象，这个赋值可能会被延迟到Session flush的时候。它保证当他在一个事务外被调用的时候不会触发`INSERT`语句。当我们需要继承Session/persistence context来实现长会话流程的时候，这样做是很有用的。
+`persist()`同样可以让你一个瞬时态的对象变为持久态。但是它并不保证统一标识符（id）的值会立即赋值给持久化对象，这个赋值可能会被延迟到 Session flush 的时候。它保证当他在一个事务外被调用的时候不会触发`INSERT`语句。当我们需要继承 Session/persistence context 来实现长会话流程的时候，这样做是很有用的。
 
 ## load() and get()
 
 `load()` and `get()` result in an SQL `SELECT BY ID`. It returns the persistent instance of the given entity class with the given identifier.(`load()` returna a "proxy")
 
-`load()`和`get()`都会导致SQL`SELECT BY ID`语句的执行。他们都会根据给定的统一标识符（id）返回实体类的持久化对象（`load()`返回的是一个"代理"）
+`load()` 和 `get()` 都会导致 SQL `SELECT BY ID` 语句的执行。他们都会根据给定的统一标识符（id）返回实体类的持久化对象（`load()` 返回的是一个"代理"）
 
 ```java
 Session session = HibernateUtils.getSession();
@@ -138,23 +138,23 @@ tx.commit();
 
 * `load()` returns a **"proxy" without hitting the database** (lazy loading). In Hibernate, "proxy" is an object with the given identifier value, its properties are not initialized yet, it just look like a temporary fake object. If no row found , it will **throws an exception** - ObjectNotFoundException.
 	
-	`load()`返回一个**"代理"而不会命中数据库**（也就是懒加载）。在Hibernate中，代理是一个有给定的统一标识符（id）对象，他的其他字段并没有被初始化，他看起来就像是一个零时的空壳对象。如果没有找到对应行，它将**抛出一个异常** - ObjectNotFoundException
+	`load()` 返回一个**"代理"而不会命中数据库**（也就是懒加载）。在 Hibernate 中，代理是一个有给定的统一标识符（id）对象，他的其他字段并没有被初始化，他看起来就像是一个零时的空壳对象。如果没有找到对应行，它将**抛出一个异常** - ObjectNotFoundException
 
 * `get()` always **hits the database and returns the real object** instead of a proxy. If no row found , **it return `null`**.
 
-	`get()`总是**命中数据库和返回真实的对象**而不是一个代理。如果没有找到对应行，**它将返回`null`**
+	`get()`总是**命中数据库和返回真实的对象**而不是一个代理。如果没有找到对应行，**它将返回 `null`**
 
 ### Which one to use
 
 If I'm not sure whether the object exists or not, I use `get()` to avoid an exception. If I'm sure, I prefer `load()`.
 
-如果我们不能确保对象是否存在，应该使用`get()`来避免异常，如果确保对象存在，建议使用`load()`来改善性能。
+如果我们不能确保对象是否存在，应该使用 `get()` 来避免异常，如果确保对象存在，建议使用 `load()` 来改善性能。
 
 ## update() and saveOrUpdate()
 
-Which function will result in SQL `UPDATE`? We could find `update()` or `saveOrUpdate()`. But we need to know firstly, there is no need to call these functions to do update. When we `get()/load()` a persistent object, and then call setters to modify something. After transaction `commit()` or session `flush()`. Database will be updated.
+Which function will result in SQL `UPDATE`? We could find `update()` or `saveOrUpdate()`. But we need to know firstly, there is no need to call these functions to do update. When we `get()/load()` a persistent object, and then call setters to modify something. After transaction `commit()` or Session `flush()`. Database will be updated.
 
-哪一个函数会导致SQL`UPDATA`？我们翻阅官方API可以看到`updata()`或者`saveOrUpdate()`。但是我们首先需要知道，我们并不是需要调用这些函数来实现更新数据库。当我们使用`get()/load()`获得的持久化对象，然后使用setters修改属性，当事务`commit()`或者session `funsh()`，数据库也会更新。
+哪一个函数会导致 SQL `UPDATA`？我们翻阅官方 API 可以看到 `updata()` 或者 `saveOrUpdate()`。但是我们首先需要知道，我们并不是需要调用这些函数来实现更新数据库。当我们使用 `get()/load()` 获得的持久化对象，然后使用 setters 修改属性，当事务 `commit()` 或者 Session `funsh()`，数据库也会更新。
 
 ```java
 Session session = HibernateUtils.getSession();
@@ -172,7 +172,7 @@ session.flush();
 
 So why we need `update()`? In fact, it's mainly used to updated a detached object which was ever a persistent object and now session is closed. When `update()` a detached object, **it will become persistent again**.
 
-那我们为什么需要`updata()`？实际上，这主要是为了更新游离态对象。还记得什么样的对象是游离态对象吗？游离态对象曾经是一个持久态对象，但是现在它对应的session关闭了。当对游离态对象使用`update`，**它将会再次变为持久态**。
+那我们为什么需要 `updata()`？实际上，这主要是为了更新游离态对象。还记得什么样的对象是游离态对象吗？游离态对象曾经是一个持久态对象，但是现在它对应的 Session 关闭了。当对游离态对象使用 `update`，**它将会再次变为持久态**。
 
 ```java
 Session session = HibernateUtils.getSession();
@@ -204,17 +204,17 @@ tx.commit();
 
 It means either `save()` or `update()` the given instance on the basis of identifier exists or not. When we are not sure whether the instance was ever persistent (so whether an identifier exists or not). USE IT! If the instance has an identifier, `update()` will be run to update it in databas. If no identifier, `save()` will be run to add an identifier and insert it into database.
 
-正如函数名一样，具体是``save()``还是``update()``取决于对象的统一标识符（id）是否存在。当我们不确定实例是否曾经持久化（也就是不确定统一标识符是否存在），使用它就没错了！如果实例有标识符`updata()`将会被调用来更新数据库。如果没有标识符，`save()`将会被调用来插入到数据库并为对象添加统一标识符。
+正如函数名一样，具体是 `save()` 还是 `update()` 取决于对象的统一标识符（id）是否存在。当我们不确定实例是否曾经持久化（也就是不确定统一标识符是否存在），使用它就没错了！如果实例有标识符 `updata()` 将会被调用来更新数据库。如果没有标识符，`save()` 将会被调用来插入到数据库并为对象添加统一标识符。
 
 ## merge()
 
 `merge()` is also used to update a detached object. It copies the state of the given object onto the persistent object with the same identifier. 
 
-`merge()`也是用来更新游离态对象，它会将给定对象状态复制到相同统一标识符（id）的持久化对象。
+`merge()` 也是用来更新游离态对象，它会将给定对象状态复制到相同统一标识符（id）的持久化对象。
 
 The difference with `update()` is that `update()` tries to reattach the instance, meaning that there is no other persistent object with the same identifier attached to the Session right now otherwise NonUniqueObjectException is thrown. `merge()`, however, just copies all values to a persistent instance in the Session (which will be loaded if it is not currently loaded). The input object is not changed. So `merge()` is more general than `update()`, but may use more resources.
 
-它和`update()`不同之处是`update()`会尝试将对象持久化，这也就是说，如果Session当前没有与给定对象一样唯一标识符（id）的对象，如果有的话将会抛出 NonUniqueObjectException。而`merge()`，仅仅将所有值复制到Session中的持久化对象中（如果没有则立即加载）。输入的对象并没有变化。所以来说它比`update()`用途更广泛，但是也会消耗更多的资源。
+它和 `update()` 不同之处是 `update()` 会尝试将对象持久化，这也就是说，如果 Session 当前没有与给定对象一样唯一标识符（id）的对象，如果有的话将会抛出  NonUniqueObjectException。而 `merge()`，仅仅将所有值复制到 Session 中的持久化对象中（如果没有则立即加载）。输入的对象并没有变化。所以来说它比 `update()` 用途更广泛，但是也会消耗更多的资源。
 
 ```java
 Session session = HibernateUtils.getSession();
@@ -241,7 +241,7 @@ tx.commit();
 
 So if in this situation, we should use `merge()`, it needs to merge user1 with user2:
 
-所以在这种情况下，我们需要使用`merge()`，我们需要合并user1和user2
+所以在这种情况下，我们需要使用 `merge()`，我们需要合并 user1 和 user2 
 
 ```java
 User user2 = (User) session.get(User.class, 2);
@@ -252,13 +252,13 @@ User user3 = (User) session.merge(user1);
 
 So here `merge()` returns the **same reference** of user2.
 
-所以这里`merge()`返回**和user2相同的引用**。
+所以这里 `merge()` 返回**和 user2 相同的引用**。
 
 ## delete()
 
 `delete()` results in SQL `DELETE`
 
-`delete()`会导致SQL`DELETE`语句的执行
+`delete()` 会导致 SQL `DELETE` 语句的执行
 
 ```java
 Session session = HibernateUtils.getSession();
@@ -275,17 +275,17 @@ tx.commit();
 
 No `find()` in current version! We must use `Query` or `Criteria` to achieve it.
 
-在当前版本不再有`find()`！ 我们需要使用`Query`或者`Criteria`来实现它。
+在当前版本不再有 `find()`！ 我们需要使用 `Query` 或者 `Criteria` 来实现它。
 
 ## flush()
 
 `session.flush()` forces Hibernate to **synchronize the in-memory state of the Session with the database**. 
 
-`session.flush()`强制Hibernate**将内存中的状态同步到数据库**。
+`session.flush()` 强制Hibernate**将内存中的状态同步到数据库**。
 
 By default, Hibernate will flush changes automatically for you:
 
-默认情况下，Hibernate将会自动刷新：
+默认情况下，Hibernate 将会自动刷新：
 
 * Before some query executions
 	
@@ -297,7 +297,7 @@ By default, Hibernate will flush changes automatically for you:
 
 We could also set flush mode, by default is AUTO:
 
-我们同样也可以设置刷新模式，默认情况是AUTO：
+我们同样也可以设置刷新模式，默认情况是 AUTO：
 
 ```java
 // The Session is flushed before every query.
@@ -312,7 +312,7 @@ session.setFlushMode(FlushMode.MANUAL);
 
 Be careful, **`setFlushMode()` must be invoked before `session.beginTransaction()`**.
 
-需要注意，**`setFlushMode()`必须在`session.beginTransaction()`之前被调用**。
+需要注意，**`setFlushMode()` 必须在 `session.beginTransaction()` 之前被调用**。
 
 ## Ref
 
