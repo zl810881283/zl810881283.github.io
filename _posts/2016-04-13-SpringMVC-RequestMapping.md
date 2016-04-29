@@ -40,7 +40,7 @@ method = {RquestMethod.GET, RquestMethod.POST}
 
 - `consumes` indicates Content-Type of the mapped request. A request will be mapped only when its Content-Type matches it.
 
-    `consumes` 表示映射请求的Content-Type。只有当一个请求的 Content-Type 满足设定时才会映射。
+    `consumes` 表示映射请求的 Content-Type。只有当一个请求的 Content-Type 满足设定时才会映射。
 
 ```java
 consumes = "application/json"
@@ -207,7 +207,7 @@ It has three properties:
 
 > Same as `@PathVariable('name')`. If we do not specify `value`. We must need to keep method parameter name the same as key.
 
-> 就像`@PathVariable('name')`一样，如果我们制定 `value`。我必须让形参名和键一样。
+> 就像`@PathVariable('name')`一样，如果我们不指定 `value`。我必须让形参名和键一样。
 
 ## @CookieValue
 
