@@ -27,13 +27,13 @@ Most MySQL indexes are stored in [B-trees](http://dev.mysql.com/doc/refman/5.7/e
 
 Composite Index is multiple-column index. For example:
 
-```SQL
+```sql
 ALTER TABLE tb_name ADD INDEX name_city_age (name(10), city, age); 
 ```
 
 This composite index, in fact, is equivalent to the following three indexes:
 
-```SQL
+```sql
 INDEX (name, city, age) 
 INDEX (name, city)
 INDEX (name) 
@@ -41,7 +41,7 @@ INDEX (name)
 
 But **NO** indexes like:
 
-```SQL
+```sql
 INDEX (name, age) 
 INDEX (city, age) 
 ```
@@ -49,14 +49,14 @@ INDEX (city, age)
 Because of **leftmost prefix**. It could simply be considered as composite from left. So the following 
 select will benefit from this composite index:
 
-```SQL
+```sql
 SELECT * FROM tb_name WHREE name="admin" AND city="Paris" 
 SELECT * FROM tb_name WHREE name="admin" 
 ```
 
 The following will not use it：
 
-```SQL
+```sql
 SELECT * FROM tb_name WHREE age=20 AND city="Paris" 
 SELECT * FROM tb_name WHREE city="Paris" 
 ```
@@ -68,7 +68,7 @@ When unique with composite index, no two equal composites are allowed.
 
 For example:
 
-```SQL
+```sql
 CREATE TABLE table1 (foo INT, bar INT);
 
 CREATE UNIQUE INDEX ux_table1_foo ON table1(foo);  -- Create unique index on foo.
@@ -102,7 +102,7 @@ Three ways to create index
 2. ALTER TABLE
 3. CREATE INDEX (**Not allowed to create `PRIMARY KEY`**)
 
-```SQL
+```sql
 CREATE TABLE tb_name(  
   ...
   INDEX indexName (column_list),
@@ -120,7 +120,7 @@ CREATE UNIQUE INDEX index_name ON table_name (column_list);
 
 ## Delete Index
 
-```SQL
+```sql
 DROP INDEX index_name ON talbe_name
 ALTER TABLE table_name DROP INDEX index_name
 
@@ -134,7 +134,7 @@ removed, the composite index will be removed entirely.
 
 ## Show index
 
-```SQL
+```sql
 mysql> show index from tb_name;
 mysql> show keys from tb_name;
 ```
@@ -155,7 +155,7 @@ So we need to know how to choose columns to set index and also optimize queries.
 
 ###### Consider about columns in `WHERE` and `JOIN`.
 
-```SQL
+```sql
 SELECT t.Name 
 FROM table1 t 
 LEFT JOIN table2 m
@@ -173,7 +173,7 @@ Index works with these operators <,<=,=,>,>=,between,in and like (Only for expre
 
 We could compte **Index Selectivity** to help us to choose.
 
-```SQL
+```sql
 Index Selectivity =  Cardinality / Rows of table
 ```
 
@@ -185,7 +185,7 @@ The higher the index selectivity value the more suggested to choose.
 
 ###### Consider **short index** to reduce size of index. Sometimes we don't need to index on the entire field, we could set a prefix length. For exampe, a column is CHAR(200), if in the first 10 characters, most records are unique.We could use short index:
 
-```SQL
+```sql
 ALTER TABLE tb_name ADD INDEX index_name (long_string(10)); 
 ```
 
@@ -197,7 +197,7 @@ So mysql only indexes according to first 10 characters which involves less disk 
 
 * Do not calculate on columns, it will make index invalid.
 
-```SQL
+```sql
 select * from users where YEAR(adddate) < 2007;
 
 Better change to like this:

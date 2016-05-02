@@ -15,7 +15,7 @@ Additional jar [org.mybatis.mybatis-spring](http://mvnrepository.com/artifact/or
 
 Here, any kind of DataSource is allowed. For example, `org.springframework.jdbc.jar`:
 
-```XML
+```xml
 <!-- In Resources folder, create jdbc.properties with following content -->
 <!-- jdbc.driver=com.mysql.jdbc.Driver -->
 <!-- jdbc.url=jdbc:mysql://localhost:3306/db_name -->
