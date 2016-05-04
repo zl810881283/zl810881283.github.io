@@ -30,9 +30,16 @@ permalink: /about
 - [ ] Graduation Design
     - [x] Research Information 
     - [x] Translate Paper
-    - [ ] Implement System
+    - [x] Implement System
     - [ ] Writing Paper
+
 - [ ] Auction Website Implement
+    - [x] Requirement and Fesign 
+    - [x] Database Design
+    - [x] Front-end Design and Implement
+    - [ ] Back-end Implement
+    - [ ] System Integration
+    - [ ] Test
 
 ## Skill Keywords
 
