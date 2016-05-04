@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Principle of PCA(CA的数学原理)
+title: Principle of PCA(PCA的数学原理)
 category: 机器学习
 tags: [机器学习,线性代数,PCA]
 keywords: 机器学习,线性代数,PCA
