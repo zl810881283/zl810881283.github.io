@@ -305,3 +305,5 @@ $$Y=\begin{pmatrix} 1/\sqrt{2} & 1/\sqrt{2} \end{pmatrix}\begin{pmatrix} -1 & -1
 最后需要说明的是，PCA是一种无参数技术，也就是说面对同样的数据，如果不考虑清洗，谁来做结果都一样，没有主观参数的介入，所以PCA便于通用实现，但是本身无法个性化的优化。
 
 希望这篇文章能帮助朋友们了解PCA的数学理论基础和实现原理，借此了解PCA的适用场景和限制，从而更好的使用这个算法。
+
+转载自：[http://blog.codinglabs.org/articles/pca-tutorial.html](http://blog.codinglabs.org/articles/pca-tutorial.html)
