@@ -2,8 +2,8 @@
 layout: post
 title: Principle of PCA(PCA的数学原理)
 category: Machine Learning
-tags: ["Machine Learning",PCA]
-keywords: Machine Learning,PCA
+tags: ["Machine Learning", "Linear Algebra", PCA]
+keywords: Machine Learning, Linear Algebra, PCA
 ---
 
 PCA（Principal Component Analysis）是一种常用的数据分析方法。PCA通过线性变换将原始数据变换为一组各维度线性无关的表示，可用于提取数据的主要特征分量，常用于高维数据的降维。网上关于PCA的文章有很多，但是大多数只描述了PCA的分析过程，而没有讲述其中的原理。这篇文章的目的是介绍PCA的基本数学原理，帮助读者了解PCA的工作机制是什么。
