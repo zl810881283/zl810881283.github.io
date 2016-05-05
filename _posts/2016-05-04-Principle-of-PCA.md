@@ -314,6 +314,9 @@ $$Y=\begin{pmatrix} 1/\sqrt{2} & 1/\sqrt{2} \end{pmatrix}\begin{pmatrix} -1 & -1
 
 转载自：[http://blog.codinglabs.org/articles/pca-tutorial.html](http://blog.codinglabs.org/articles/pca-tutorial.html)
 
+
+<style type="text/css">
 .picture {
   text-align: center;
 }
+</style>
