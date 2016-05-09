@@ -1,3 +1,10 @@
+---
+layout: wiki
+title: Machine Learning
+category: Machine Learning
+description: Some useful link about machine learning
+keywords: Machine Learning, 机器学习
+---
 
 ## 计算机视觉
 
