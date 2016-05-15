@@ -3,12 +3,12 @@
             <div class="copyright left mobile-block">
                     © 2015
                     <span title="{{site.name}}">{{site.name}}</span>
-                    <a href="javascript:$('body, html').animate({scrollTop: 0}, 600)" class="right mobile-visible">TOP</a>
+                    <a href="javascript:$("body, html").animate({scrollTop: 0}, 600)" class="right mobile-visible">TOP</a>
             </div>
 
             <ul class="site-footer-links right mobile-hidden">
                 <li>
-                    <a href="javascript:$('body, html').animate({scrollTop: 0}, 600)" >TOP</a>
+                    <a href="javascript:$("body, html").animate({scrollTop: 0}, 600)" >TOP</a>
                 </li>
             </ul>
             <a href="{{site.source_code}}" target="_blank" aria-label="view source code">
