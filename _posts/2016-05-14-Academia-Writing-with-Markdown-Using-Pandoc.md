@@ -282,11 +282,8 @@ Pandoc 对 Markdown 语法进行了扩展以支持交叉引用和文献引用，
 ![this is a figure](path/to/figure.png){#fig:figname}
 ```
 
-```markdown
-![this is a figure](path/to/figure.png){#fig:figname}
-```
 
-```markdown
+```latex
 $$\sqrt{x}$${#eq:eqname}
 ```
 
