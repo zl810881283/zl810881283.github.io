@@ -132,25 +132,25 @@ Markdown 在网络写作方面十分热门，这主要源于其轻量级的设�
 
 ### 为什么选择 Markdown + Pandoc 组合
 
-1. 轻量、简单易学、上手容易。实话说学 **LaTeX** 已经花了不少功夫，我不想再学习另一种复杂的语言，只是为了写作文章。Markdown 符合需求。
+- 轻量、简单易学、上手容易。实话说学 **LaTeX** 已经花了不少功夫，我不想再学习另一种复杂的语言，只是为了写作文章。Markdown 符合需求。
 
-2. 能够顺利转换成 Word 文档。毕竟周围的人用 Word 还是不少，能够顺利和他们分享文档并批注也是我的基本需求之一。这点 Pandoc 可以解决。
+- 能够顺利转换成 Word 文档。毕竟周围的人用 Word 还是不少，能够顺利和他们分享文档并批注也是我的基本需求之一。这点 Pandoc 可以解决。
 
-3. 能够转成 TeX 文档。Pandoc 可以将 Markdown 转到 TeX 文件，这一点对我来说吸引力非常大，有了 Tex，我可以很方便的套用 **LaTeX** 模板
+- 能够转成 TeX 文档。Pandoc 可以将 Markdown 转到 TeX 文件，这一点对我来说吸引力非常大，有了 Tex，我可以很方便的套用 **LaTeX** 模板
 
 ### Pandoc 的安装
 
 首先你需要安装 **LaTeX** 环境。
 
-* Windows 用户安装 [TeXlive](http://tug.org/texlive/)。
+- Windows 用户安装 [TeXlive](http://tug.org/texlive/)。
 
-* Ubuntu 用户直接使用命令安装
+- Ubuntu 用户直接使用命令安装
     
 ```shell
 sudo apt-get install texlive-full
 ```
 
-* Max OS 用户安装 [MaxTeX](http://tug.org/mactex/)
+- Max OS 用户安装 [MaxTeX](http://tug.org/mactex/)
 
 具体安装过程不再说明，如遇到问题，请自行百度解决。这里假设已经安装好了 **LaTeX** 环境。
 
@@ -168,15 +168,15 @@ sudo apt-get install texlive-full
 
 接下来配置环境变量
 
-* Windows 用户 请自行查阅网上资料
+- Windows 用户 请自行查阅网上资料
 
-* Ubuntu 用户 将 `~/.cabal` 加入 `PATH` 中，即在 `~/.bashrc` 文件中增加一行（如果使用 `zsh` 请在 `~/.zshrc` 中添加）：
+- Ubuntu 用户 将 `~/.cabal` 加入 `PATH` 中，即在 `~/.bashrc` 文件中增加一行（如果使用 `zsh` 请在 `~/.zshrc` 中添加）：
 
 ```shell
 export PATH="~/.cabal:$PATH"
 ```
 
-* Max OS 用户 将 `$HOME/Library/Haskell/bin` 加入 `PATH` 中，即在 `~/.bashrc` 文件中增加一行（如果使用 `zsh` 请在 `~/.zshrc` 中添加）：
+- Max OS 用户 将 `$HOME/Library/Haskell/bin` 加入 `PATH` 中，即在 `~/.bashrc` 文件中增加一行（如果使用 `zsh` 请在 `~/.zshrc` 中添加）：
 
 ```shell
 export PATH="$HOME/Library/Haskell/bin:$PATH"
@@ -201,15 +201,15 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 
 我一般使用上面的命令完成格式转换，具体语法如下：
 
-* `-s`: standalone， 这个是pdf的默认选项，可以不管它。
-* `-S`: smart，几乎也是默认选项，大致可以减少出错概率。
-* `--filter pandoc-crossref`，使用交叉引用插件处理文档。
-* `--filter pandoc-citeproc`，使用文献引用插件处理文档。注意顺序，这个必须在 `--filter pandoc-crossref` 后面
-* `--biblio reference.bib` 告诉 Pandoc 文献的 bibtex 位置，这里我是直接放在同一目录下的，如在其他目录下，请使用相对路径或绝对路径。
-* `--csl chinese-gb7714-2005-numeric.csl` 告诉 pandoc 使用的文献引用格式，这个 csl 文档直接在 zotero 上找的。
-* `--latex-engine=xelatex` 我没有使用默认的 latex 引擎，而是使用 xelatex 这个引擎。
-* `--template=cqu.latex` 告诉 pandoc 使用模版，这个 `cqu.latex` 是我在默认模版上修改的。模板可以在[这里](https://github.com/jgm/pandoc-templates)找到。
-* `main.md -o main.pdf` 告诉pandoc输入文档，`-o` 告诉 pandoc 输出文档。如果需要转换成别的格式，将 `pdf` 改成该格式对应后缀名即可。如转换成 Word 格式，将 `pdf` 改为 `docx`；转换成 **LaTeX** 格式，将 `pdf` 改为 `tex`。
+- `-s`: standalone， 这个是pdf的默认选项，可以不管它。
+- `-S`: smart，几乎也是默认选项，大致可以减少出错概率。
+- `--filter pandoc-crossref`，使用交叉引用插件处理文档。
+- `--filter pandoc-citeproc`，使用文献引用插件处理文档。注意顺序，这个必须在 `--filter pandoc-crossref` 后面
+- `--biblio reference.bib` 告诉 Pandoc 文献的 bibtex 位置，这里我是直接放在同一目录下的，如在其他目录下，请使用相对路径或绝对路径。
+- `--csl chinese-gb7714-2005-numeric.csl` 告诉 pandoc 使用的文献引用格式，这个 csl 文档直接在 zotero 上找的。
+- `--latex-engine=xelatex` 我没有使用默认的 latex 引擎，而是使用 xelatex 这个引擎。
+- `--template=cqu.latex` 告诉 pandoc 使用模版，这个 `cqu.latex` 是我在默认模版上修改的。模板可以在[这里](https://github.com/jgm/pandoc-templates)找到。
+- `main.md -o main.pdf` 告诉pandoc输入文档，`-o` 告诉 pandoc 输出文档。如果需要转换成别的格式，将 `pdf` 改成该格式对应后缀名即可。如转换成 Word 格式，将 `pdf` 改为 `docx`；转换成 **LaTeX** 格式，将 `pdf` 改为 `tex`。
 
 ## 写作
 
