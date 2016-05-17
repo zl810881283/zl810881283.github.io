@@ -211,7 +211,7 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 
 ## 写作
 
-Pandoc扩展了Markdown语法，作者提供了[详尽的文档](http://www.pandoc.org/README.html)，严格按这个来写的话，应该不会出什么问题。
+Pandoc 扩展了 Markdown 语法，作者提供了[详尽的文档](http://www.pandoc.org/README.html)，严格按这个来写的话，应该不会出什么问题。
 
 ### Markdown，**LaTeX** 编辑工具
 
@@ -307,25 +307,25 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex  main.md -o main.docx
 ```
 
-需要注意的是，模板中需要的字体您的系统中可能没有，请自行安装缺失字体。
+需要注意的是，模板中需要的字体您的系统中可能没有，**请自行安装缺失字体**。
 
 ### 调试篇
 
-Pandoc本质上并不会直接生成 pdf 文件，其生成过程为 Markdown -> **LaTeX** -> **pdf**。所以一旦出现任何期待意外的事，我们都可以使用
+Pandoc本质上并不会直接生成 pdf 文件，其生成过程为 Markdown -> **LaTeX** -> **pdf**。所以一旦出现任何期待以外的事，我们都可以使用
 
 ```shell
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex --template=cqu.latex main.md -o main.tex
 ```
 
-生成 **LaTeX** 源文件，相信这对会使用 **LaTeX** 的人来说并没什么困难。
+生成 **LaTeX** 源文件，有了源文件，相信这对会使用 **LaTeX** 的人来说调试起来应该没什么困难。
 
 ## 总结
 
 好了，现在可以放心的用 Markdown ＋ Pandoc 的组合来写论文了，数学公式，图表和参考文献都没有问题。保留 Markdown 的轻量的同时，也可以无缝转换到其它文档格式。最关键的是，和 **LaTeX** 也有非常完美的结合。
 
-总结起来，当我们需要和别人写作完成论文时，只需要修改 Markdown 文件。而 Markdown 是纯文本文件很方便用 CVS 诸如 Git 进行版本管理和多人协作。
+总结起来，当我们需要和别人写作完成论文时，**只需要**修改 Markdown 文件。而 Markdown 是纯文本文件很方便用 CVS 诸如 Git 进行 **版本管理和多人协作**。
 
-当导师需要查阅修改时，使用如下命令进行 Markdown -> docx 转换。最后将修改同步回 Markdown 文件中即可。
+当导师需要查阅修改时，使用如下命令进行 Markdown -> docx 转换。最后**将修改同步回 Markdown 文件中**即可。
 
 ```shell
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex  main.md -o main.doc
