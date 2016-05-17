@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Academia Writing with Markdown Using Pandoc(使用 Pandoc Markdown 进行学术论文写作)
+title: 使用 Pandoc Markdown 进行学术论文写作
 category: Writing
 tags: ["Markdown", "Pandoc", "Writting"]
 keywords: Markdown, Pandoc, Writting
