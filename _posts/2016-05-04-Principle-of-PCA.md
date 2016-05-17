@@ -10,8 +10,6 @@ PCA（Principal Component Analysis）是一种常用的数据分析方法。PCA�
 
 当然我并不打算把文章写成纯数学文章，而是希望用直观和易懂的方式叙述PCA的数学原理，所以整个文章不会引入严格的数学推导。希望读者在看完这篇文章后能更好的明白PCA的工作原理。
 
-
-
 # 数据的向量表示及降维问题
 
 一般情况下，在数据挖掘和机器学习中，数据被表示为向量。例如某个淘宝店2012年全年的流量及交易情况可以看成一组记录的集合，其中每一天的数据是一条记录，格式如下：
@@ -50,8 +48,8 @@ $$(a_1,a_2,\cdots,a_n)^\mathsf{T}\cdot (b_1,b_2,\cdots,b_n)^\mathsf{T}=a_1b_1+a_
 
 内积运算将两个向量映射为一个实数。其计算方式非常容易理解，但是其意义并不明显。下面我们分析内积的几何意义。假设$A$和$B$是两个$n$维向量，我们知道$n$维向量可以等价表示为$n$维空间中的一条从原点发射的有向线段，为了简单起见我们假设$A$和$B$均为二维向量，则$A=(x_1,y_1)$，$B=(x_2,y_2)$。则在二维平面上$A$和$B$可以用两条发自原点的有向线段表示，见下图：
 
-
-![](/attachments/images/Principle-of-PCA/01.png){:.picture}
+{:.picture}
+![](/attachments/images/Principle-of-PCA/01.png)
 
 好，现在我们从$A$点向$B$所在直线引一条垂线。我们知道垂线与$B$的交点叫做$A$在$B$上的投影，再设$A$与$B$的夹角是$a$，则投影的矢量长度为$\vert A\vert cos(a)$，其中$\vert A\vert =\sqrt{x_1^2+y_1^2}$是向量$A$的模，也就是$A$线段的标量长度。
 
@@ -71,8 +69,8 @@ $$A\cdot B=|A|cos(a)$$
 
 下面我们继续在二维空间内讨论向量。上文说过，一个二维向量可以对应二维笛卡尔直角坐标系中从原点出发的一个有向线段。例如下面这个向量：
 
-
-![](/attachments/images/Principle-of-PCA/02.png){:.picture}
+{:.picture}
+![](/attachments/images/Principle-of-PCA/02.png)
 
 在代数表示方面，我们经常用线段终点的点坐标表示向量，例如上面的向量可以表示为$(3,2)$，这是我们再熟悉不过的向量表示。
 
@@ -84,8 +82,8 @@ $$x(1,0)^\mathsf{T}+y(0,1)^\mathsf{T}$$
 
 不难证明所有二维向量都可以表示为这样的线性组合。此处$(1,0)$和$(0,1)$叫做二维空间中的一组基。
 
-
-![](/attachments/images/Principle-of-PCA/03.png){:.picture}
+{:.picture}
+![](/attachments/images/Principle-of-PCA/03.png)
 
 所以，**要准确描述向量，首先要确定一组基，然后给出在基所在的各个直线上的投影值，就可以了**。只不过我们经常省略第一步，而默认以$(1,0)$和$(0,1)$为基。
 
@@ -95,8 +93,8 @@ $$x(1,0)^\mathsf{T}+y(0,1)^\mathsf{T}$$
 
 现在，我们想获得$(3,2)$在新基上的坐标，即在两个方向上的投影矢量值，那么根据内积的几何意义，我们只要分别计算$(3,2)$和两个基的内积，不难得到新的坐标为$(\frac{5}{\sqrt{2}},-\frac{1}{\sqrt{2}})$。下图给出了新的基以及$(3,2)$在新基上坐标值的示意图：
 
-
-![](/attachments/images/Principle-of-PCA/05.png){:.picture}
+{:.picture}
+![](/attachments/images/Principle-of-PCA/05.png)
 
 另外这里要注意的是，我们列举的例子中基是正交的（即内积为$0$，或直观说相互垂直），但可以成为一组基的唯一要求就是线性无关，非正交的基也是可以的。不过因为正交基有较好的性质，所以一般使用的基都是正交的。
 
@@ -141,8 +139,8 @@ $$\begin{pmatrix} -1 & -1 & 0 & 2 & 0 \\ -2 & 0 & 0 & 1 & 1 \end{pmatrix}$$
 
 我们可以看下五条数据在平面直角坐标系内的样子：
 
-
-![](/attachments/images/Principle-of-PCA/06.png){:.picture}
+{:.picture}
+![](/attachments/images/Principle-of-PCA/06.png)
 
 现在问题来了：如果我们必须使用一维来表示这些数据，又希望尽量保留原始的信息，你要如何选择？
 
@@ -301,8 +299,8 @@ $$Y=\begin{pmatrix} 1/\sqrt{2} & 1/\sqrt{2} \end{pmatrix}\begin{pmatrix} -1 & -1
 
 降维投影结果如下图：
 
-
-![](/attachments/images/Principle-of-PCA/07.png){:.picture}
+{:.picture}
+![](/attachments/images/Principle-of-PCA/07.png)
 
 # 进一步讨论
 
