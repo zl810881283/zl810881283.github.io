@@ -207,7 +207,7 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 * `--filter pandoc-citeproc`，使用文献引用插件处理文档。注意顺序，这个必须在 `--filter pandoc-crossref` 后面
 * `--biblio reference.bib` 告诉 Pandoc 文献的 bibtex 位置，这里我是直接放在同一目录下的，如在其他目录下，请使用相对路径或绝对路径。
 * `--csl chinese-gb7714-2005-numeric.csl` 告诉 pandoc 使用的文献引用格式，这个 csl 文档直接在 zotero 上找的。
-* `--latex-engine=xelatex` 我沒有使用默认的latex引擎，而是使用xelatex这个引擎。
+* `--latex-engine=xelatex` 我沒有使用默认的 latex 引擎，而是使用 xelatex 这个引擎。
 * `--template=cqu.latex` 告诉 pandoc 使用模版，这个 `cqu.latex` 是我在默认模版上修改的。模板可以在[这里](https://github.com/jgm/pandoc-templates)找到。
 * `main.md -o main.pdf` 告诉pandoc输入文档，`-o` 告诉 pandoc 输出文档。如果需要转换成别的格式，将 `pdf` 改成该格式对应后缀名即可。如转换成 Word 格式，将 `pdf` 改为 `docx`；转换成 **LaTeX** 格式，将 `pdf` 改为 `tex`。
 
