@@ -301,6 +301,17 @@ $$\sqrt{x}$${#eq:eqname}
 {:.picture.bordered}
 ![交叉引用](/attachments/images/Academia-Writing-with-Markdown-Using-Pandoc/crossref.png)
 
+### 调试篇
+
+Pandoc本质上并不会直接生成 pdf 文件，其生成过程为 Markdown -> **LaTeX** -> **pdf**。所以一旦出现任何期待以外的事，我们都可以使用如下命令生成 **LaTeX** 源文件：
+
+```shell
+pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex --template=cqu.latex main.md -o main.tex
+```
+
+有了源文件，相信对会使用 **LaTeX** 的人来说调试起来应该没什么困难。
+
+
 ### Quick Start Demo
 
 在这里我把我的本科毕业设计论文使用的模板放在 [GitHub](https://github.com/zl810881283/Academia-Writing-with-Markdown-Using-Pandoc) 上，大家可以在这个基础上自行添加修改。
@@ -319,15 +330,6 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 
 需要注意的是，模板中需要的字体您的系统中可能没有，**请自行安装缺失字体**。
 
-### 调试篇
-
-Pandoc本质上并不会直接生成 pdf 文件，其生成过程为 Markdown -> **LaTeX** -> **pdf**。所以一旦出现任何期待以外的事，我们都可以使用
-
-```shell
-pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex --template=cqu.latex main.md -o main.tex
-```
-
-生成 **LaTeX** 源文件，有了源文件，相信这对会使用 **LaTeX** 的人来说调试起来应该没什么困难。
 
 ## 总结
 
