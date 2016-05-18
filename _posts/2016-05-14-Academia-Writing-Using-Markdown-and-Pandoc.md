@@ -333,15 +333,15 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 
 好了，现在可以放心的用 Markdown ＋ Pandoc 的组合来写论文了，数学公式，图表和参考文献都没有问题。保留 Markdown 的轻量的同时，也可以无缝转换到其它文档格式。最关键的是，和 **LaTeX** 也有非常完美的结合。
 
-总结起来，当我们需要和别人写作完成论文时，**只需要**修改 Markdown 文件。而 Markdown 是纯文本文件很方便用 CVS 诸如 Git 进行 **版本管理和多人协作**。
+总结起来，当我们需要和别人写作完成论文时，**只修改 Markdown 文件**，需要其他格式的文档，都由 Markdown 转换。而 Markdown 是纯文本文件很方便用 CVS 诸如 Git 进行**版本管理和多人协作**。
 
-当导师需要查阅修改时，使用如下命令进行 Markdown -> docx 转换。最后**将修改同步回 Markdown 文件中**即可。
+当**导师需要查阅修改**时，使用如下命令进行 Markdown -> docx 转换。最后**将修改同步回 Markdown 文件中**即可。
 
 ```shell
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex  main.md -o main.doc
 ```
 
-当论文需要发表时，使用如下命令进行 Markdown -> **LaTeX** -> pdf 转换，套用期刊或会议的 `cls` 文件完成排版。
+当**论文需要发表**时，使用如下命令进行 Markdown -> **LaTeX** -> pdf 转换，套用期刊或会议的 `cls` 文件完成排版。
 
 ```shell
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex --template=template.latex main.md -o main.tex
