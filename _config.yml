@@ -8,7 +8,7 @@ keywords: Zale, blog, ZhangLe
 
 url:
 baseurl:  "/"
-domain:
+domain:   "zale.site"
 permalink:     /articles/:year/:month/:title.html
 paginate_path: 'page:num'
 paginate:   10
