@@ -335,7 +335,7 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 
 总结起来，当我们需要和别人写作完成论文时，**只修改 Markdown 文件**，需要其他格式的文档，都由 Markdown 转换。而 Markdown 是纯文本文件很方便用 CVS 诸如 Git 进行**版本管理和多人协作**。
 
-当**导师需要查阅修改**时，使用如下命令进行 Markdown -> docx 转换。最后**将修改同步回 Markdown 文件中**即可。
+当**导师需要查阅修改**时，使用如下命令进行 Markdown -> docx 转换。导师修改完成后，**将修改同步回 Markdown 文件中**即可。
 
 ```shell
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex  main.md -o main.doc
