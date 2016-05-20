@@ -261,7 +261,7 @@ Pandoc 对 Markdown 语法进行了扩展以支持交叉引用和文献引用，
 
 #### 数学公式
 
-在 Markdown 中使用数学公式，和直接在 **LaTex** 中使用并无太多区别，直接使用 `$`（行内公式）或是``$$``（行间公式）符号包裹即可。
+在 Markdown 中使用数学公式，和直接在 **LaTeX** 中使用并无太多区别，直接使用 `$`（行内公式）或是``$$``（行间公式）符号包裹即可。
 
 {:.picture.bordered}
 ![公式](/attachments/images/Academia-Writing-with-Markdown-Using-Pandoc/formula.png)
@@ -303,7 +303,7 @@ $$\sqrt{x}$${#eq:eqname}
 
 ### 调试篇
 
-Pandoc本质上并不会直接生成 pdf 文件，其生成过程为 Markdown -> **LaTeX** -> **pdf**。所以一旦出现任何期待以外的事，我们都可以使用如下命令生成 **LaTeX** 源文件：
+Pandoc本质上并不会直接生成 pdf 文件，其**生成过程**为 Markdown -> **LaTeX** -> pdf。所以一旦出现预料之外的事，我们都可以使用如下命令生成 **LaTeX** 源文件：
 
 ```shell
 pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib --csl chinese-gb7714-2005-numeric.csl --latex-engine=xelatex --template=cqu.latex main.md -o main.tex
@@ -312,7 +312,7 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 有了源文件，相信对会使用 **LaTeX** 的人来说调试起来应该没什么困难。
 
 
-### Quick Start Demo
+## Quick Start Demo
 
 在这里我把我的本科毕业设计论文使用的模板放在 [GitHub](https://github.com/zl810881283/Academia-Writing-with-Markdown-Using-Pandoc) 上，大家可以在这个基础上自行添加修改。
 
@@ -352,7 +352,7 @@ pandoc --filter pandoc-crossref --filter pandoc-citeproc --biblio reference.bib 
 
 ```
 
-注意我这里为什么转换成 tex 文件，如果你需要定制化排版一些东西，可以转换成 tex 文件对其进行修改，我想会使用 **LaTeX** 的人这都不是问题吧。
+注意我这里为什么转换成 tex 文件，如果你需要实现**复杂的定制化排版**，可以**转换成 tex 文件**对其进行修改（一般情况下可以通过修改cls文件实现，非常特殊的情况下才需要修改 tex 文件），这对会使用 **LaTeX** 的人这都不是问题吧。
 
 <style type="text/css">
     .picture{
