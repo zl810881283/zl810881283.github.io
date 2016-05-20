@@ -1,12 +1,12 @@
 ---
 layout: post
-title: GitHub自动部署
+title: GitHub 自动部署
 category: GitHub
 tags: ["GitHub", "NodeJs"]
 keywords: GitHub, NodeJs
 ---
 
-**本文对任何提供Webhook的git仓库都适用**
+**本文对任何提供 Webhook 的 git 仓库都适用**
 
 {:.picture.bordered}
 ![github](/attachments/images/GItHub-Automatic-Deployment/github.jpg)
