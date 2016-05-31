@@ -152,7 +152,7 @@ comments:
 # ---------------- #
 skill_software_keywords: [Java, C, C++, NodeJs, Python, MySQL, Oracle, SQLite, MongoDB, HBase, Hadoop, Spark, Design Patterns]
 skill_j2ee_keywords: [Spring, SpringMVC, Struct, Hibernet, MyBatis, JSP]
-skill_web_keywords: [HTML, CSS, Javascript, Jquery, Bootstrap, Angular, Express, ThinkJs, ]
+skill_web_keywords: [HTML, CSS, Javascript, Jquery, Angular, Express, ThinkJs, Bootstrap]
 skill_mobile_app_keywords: [Android, Ionic, Cordova]
 popular_repos: ['ppt', 'RandomName', 'Java-BackGammon', 'zl810881283.github.io', 'project_template']
 contribute_repos: ['academic-zl/SEMAGE', 'outsourcingproject/auction', 'outsourcingproject/zhazha.com', 'outsourcingproject/wechart_shop']
