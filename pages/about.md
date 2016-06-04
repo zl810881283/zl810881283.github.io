@@ -13,8 +13,8 @@ permalink: /about
 ## Base Information
 
 
-- Organization:{%site.organization%}
-- Location:{%site.location%}
+- Organization: [{{ site.organization }}]({{organization_url}})
+- Location: {{ site.location }}
 
 ## Contact
 
