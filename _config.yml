@@ -120,14 +120,14 @@ subscribe_rss: /feed.xml
 # ---------------- #
 socials:
   -
-    type: zhihu
+    type: ZhiHu
     account: zl810881283
     home: https://www.zhihu.com/people/zl810881283
   -
-    type: twitter
+    type: Twitter
     account:
   -
-    type: facebook
+    type: Facebook
     account:
 
 # ---------------- #

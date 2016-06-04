@@ -10,6 +10,11 @@ permalink: /about
 
 # {{site.name}}
 
+## Base Information
+
+
+- Organization:{%site.organization%}
+- Location:{%site.location%}
 
 ## Contact
 
@@ -25,21 +30,7 @@ permalink: /about
 - No.1 team's redmine: [http://redmine.zale.site](http://redmine.zale.site)
 - Project done by myself - zhazha.pw: [http://zhazha.zale.site](http://zhazha.zale.site)
  
-## Current Work List
 
-- [ ] Graduation Design
-    - [x] Research Information 
-    - [x] Translate Paper
-    - [x] Implement System
-    - [ ] Writing Paper
-
-- [ ] Auction Website Implement
-    - [x] Requirement and Fesign 
-    - [x] Database Design
-    - [x] Front-end Design and Implement
-    - [ ] Back-end Implement
-    - [ ] System Integration
-    - [ ] Test
 
 ## Skill Keywords
 
@@ -71,4 +62,19 @@ permalink: /about
     {% endfor %}
 </div>
 
+## Current Work List
 
+- [ ] Graduation Design
+    - [x] Research Information 
+    - [x] Translate Paper
+    - [x] Implement System
+    - [x] Writing Paper
+    - [ ] Academic Defense
+
+- [ ] Auction Website Implement
+    - [x] Requirement and Fesign 
+    - [x] Database Design
+    - [x] Front-end Design and Implement
+    - [ ] Back-end Implement
+    - [ ] System Integration
+    - [ ] Test
