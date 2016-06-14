@@ -1,10 +1,10 @@
 # ---------------- #
 #   Main Configs   #
 # ---------------- #
-title: Zale - ZhangLe's Website 张乐个人网站
+title: Zale - Zale's Blog 张乐博客 个人网站
 name: Zale
-description: Zale's Personal Website 张乐个人网站
-keywords: Zale, blog, ZhangLe, 张乐, 博客
+description: Zale's Blog 张乐博客 个人网站
+keywords: Zale, 张乐, blog, 博客, ZhangLe, 个人网站
 
 url:
 baseurl:  "/"
