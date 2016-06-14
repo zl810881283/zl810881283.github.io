@@ -1,4 +1,4 @@
-# Zale's personal blog 
+# Zale's Personal blog 
 
 This repo is Zale's personal blog on [GitHub Pages](https://pages.github.com/)
 
