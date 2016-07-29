@@ -13,7 +13,7 @@ permalink: /about
 ## Base Information
 
 
-- Organization: [{{ site.organization }}]({{organization_url}})
+- Organization: [{{ site.organization }}]({{site.organization_url}})
 - Location: {{ site.location }}
 
 ## Contact
@@ -64,17 +64,10 @@ permalink: /about
 
 ## Current Work List
 
-- [ ] Graduation Design
-    - [x] Research Information 
-    - [x] Translate Paper
-    - [x] Implement System
-    - [x] Writing Paper
-    - [ ] Academic Defense
-
 - [ ] Auction Website Implement
     - [x] Requirement and Fesign 
     - [x] Database Design
     - [x] Front-end Design and Implement
-    - [ ] Back-end Implement
+    - [x] Back-end Implement
     - [ ] System Integration
     - [ ] Test
