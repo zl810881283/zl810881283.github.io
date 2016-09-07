@@ -76,4 +76,4 @@ Source Insight(以下简称SI)是 Windows 下的收费软件，界面丑陋，�
 
 当然是直接使用 Injtellij Clion , 作为一个不错的 c/c++ IDE,代码跳转,代码提示,自动 include 应有尽有
 
-> 当然 sublime lime 的轻量级也是不少人选择他的原因
+> 当然 sublime text 的轻量级也是不少人选择他的原因
