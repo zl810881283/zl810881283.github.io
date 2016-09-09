@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MacOS 下使用Sublime Text3+Ctags+Cscope替代Source Insight
+title: MacOS 下使用 Sublime Text3 + Ctags + Cscope 替代 Source Insight
 category: GitHub
 tags: ["Sublime Text", "Ctags", "Cscope", "MacOS"]
 keywords: MacOS, Sublime Text, Ctags, Cscope, Source Insight
