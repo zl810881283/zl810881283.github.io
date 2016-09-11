@@ -2,8 +2,8 @@
 layout: post
 title: GitHub 自动部署
 category: GitHub
-tags: ["GitHub", "NodeJs"]
-keywords: GitHub, NodeJs
+tags: ["GitHub", "Node.js"]
+keywords: GitHub, Node.js
 ---
 
 **本文对任何提供 Webhook 的 git 仓库都适用**

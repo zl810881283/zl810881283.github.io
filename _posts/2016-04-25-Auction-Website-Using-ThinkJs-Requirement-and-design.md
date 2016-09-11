@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Auction Website Using ThinkJs - Requirement and Design (双语)
-category: NodeJs
-tags: [NodeJs, ThinkJs, ES7]
+category: Node.js
+tags: ["Node.js", "ThinkJS", "ES7"]
 keywords: NodeJs, ThinkJs, ES7
 ---
 
